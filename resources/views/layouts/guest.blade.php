@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class="font-space text-nblue antialiased">
+<body class="font-space text-nblue antialiased relative">
 
     <div class="min-h-screen">
         @include('layouts.guest-navigation')
@@ -48,7 +48,7 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="../src/main.js"></script>
+    {{-- <script src="../src/main.js"></script> --}}
 
 </body>
 

@@ -1,21 +1,21 @@
 <!-- Navigation Links -->
-<div class="flex justify-start sm:justify-between mt-16 sm:space-x-12 space-y-5 flex-wrap">
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+<div class="flex justify-start sm:justify-between mt-16  flex-wrap">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Insight') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Story') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Service') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Work') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Career') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <x-foot-link :href="route('dashboard')">
         {{ __('Contact') }}
     </x-foot-link>
 </div>
