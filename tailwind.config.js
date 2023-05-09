@@ -11,15 +11,16 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                dm: ['DM Sans', sans-serif],
-                mont: ['Montserrat', sans-serif],
-                space: ['Space Grotesk', sans-serif]
+                dm: ['DM Sans', 'sans-serif'],
+                mont: ['Montserrat', 'sans-serif'],
+                space: ['Space Grotesk', 'sans-serif']
             },
             colors: {
                 transparent: 'transparent',
                 current: 'currentColor',
                 'seagreen': '#15B6A4',
                 'nblue': '#101827',
+                'lightblack': '#52525B'
             }
         },
     },
