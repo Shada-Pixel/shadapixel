@@ -20,11 +20,12 @@ module.exports = {
                 current: 'currentColor',
                 'seagreen': '#15B6A4',
                 'nblue': '#101827',
-                'lightblack': '#52525B'
+                'lightblack': '#52525B',
+                'cream': '#EFEEEA'
             }
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    // plugins: [require('@tailwindcss/forms')],
 };
 
