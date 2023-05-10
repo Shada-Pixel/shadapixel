@@ -60,6 +60,19 @@
         </div>
     </div>
 
+    {{-- inovation --}}
+    <div class="py-16 flex">
+        <div class="w-1/2 ">
+            <div class="w-5/6 ml-auto bg-seagreen py-16 pl-[20%] pr-5 h-[400px] flex flex-col justify-center items-start">
+                <h2 class="font-mont font-bold text-5xl">Innovative<br>Ideas</h2>
+
+                <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptate expedita in, eos quas porro ducimus, commodi dolore nostrum ipsam dolores delectus saepe laboriosam molestias perspiciatis ipsum aspernatur, id quia.</p>
+                <x-primary-button>Learn more</x-primary-button>
+            </div>
+        </div>
+        <div class="w-1/2 bg-nblue h-[400px]"></div>
+    </div>
+
     {{-- clients --}}
     <div class="">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid sm:grid-cols-6 gap-20">
@@ -161,9 +174,11 @@
                     </form>
             </div>
         </div>
-        <div class="bg-gradient-to-r from-nblue from-80% via-cream via-80% to-cream">
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 ">
+        {{-- bg-gradient-to-r from-nblue from-80% via-cream via-80% to-cream --}}
+        <div class="">
+
+            <div class="w-[90%] ml-0 mr-auto px-4 sm:px-6 lg:px-8 py-24 bg-nblue">
                 <h2 class="font-mont font-bold text-4xl text-white mb-4 text-center">Subscribe to our newsletter to stay in<br>
                     touch with the latest.</h2>
             </div>
