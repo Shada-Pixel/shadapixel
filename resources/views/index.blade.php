@@ -73,6 +73,21 @@
         <div class="w-1/2 bg-nblue h-[400px]"></div>
     </div>
 
+    {{-- innovative idea --}}
+    <div class="">
+        <div class="w-[90%] ml-auto flex">
+            <div class="bg-seagreen py-16 pl-[11vw] pr-5 h-[400px] flex flex-col justify-center items-start">
+                <h2 class="font-mont font-bold text-5xl">Innovative<br>Ideas</h2>
+
+                <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptate expedita in, eos quas porro ducimus, commodi dolore nostrum ipsam dolores delectus saepe laboriosam molestias perspiciatis ipsum aspernatur, id quia.</p>
+                <x-primary-button>Learn more</x-primary-button>
+            </div>
+            <div class="w-1/2 h-[400px] bg-[url({{asset('images/Rectangle16.jpg')}})]" >
+            <img src="{{asset('images/Rectangle16.jpg')}}" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+
     {{-- clients --}}
     <div class="">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid sm:grid-cols-6 gap-20">
