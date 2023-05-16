@@ -82,8 +82,8 @@
                 <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptate expedita in, eos quas porro ducimus, commodi dolore nostrum ipsam dolores delectus saepe laboriosam molestias perspiciatis ipsum aspernatur, id quia.</p>
                 <x-primary-button>Learn more</x-primary-button>
             </div>
-            <div class="w-1/2 h-[400px] bg-[url({{asset('images/Rectangle16.jpg')}})]" >
-            <img src="{{asset('images/Rectangle16.jpg')}}" alt="" srcset="">
+            <div class="w-1/2 h-[400px] bg-[url('../images/Rectangle16.jpg')]" style="">
+            <img src="{{asset('../images/Rectangle16.jpg')}}" alt="" srcset="">
             </div>
         </div>
     </div>
