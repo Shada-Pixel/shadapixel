@@ -21,3 +21,19 @@ $(".blogCarousal").owlCarousel({
         }
     }
 })
+
+
+// toggling innovation popup
+function toggleInnoPop() {
+    $(".innovationPop").toggleClass('hidden flex');
+}
+
+
+$(".innovationPop").click(function(event) {
+    if (!$(event.target).closest('.innovationPop').length && !$(event.target).is('.innovationPop')) {
+    //   $('.innovationPop').fadeOut();
+    $(".innovationPop").toggleClass('hidden flex');
+
+    }
+  });
+//
