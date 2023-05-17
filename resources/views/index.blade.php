@@ -76,45 +76,51 @@
     </div>
 
     {{-- blog --}}
-    <div class="py-12 sm:py-24 ">
+    <div class="py-12 sm:py-24 overflow-hidden">
         <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden flex gap-5 owl-carousel blogCarousal owl-theme">
-            {{-- item --}}
-            <div class="item">
-                <img src="{{ asset('images/blogs/cover (1).jpg') }}" alt="" srcset="" class="mb-8">
-                <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
-                </p>
-                <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                <x-primary-button>Read More</x-primary-button>
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  flex gap-5 relative ">
+            <div class="sm:min-w-[100vw] ">
+                <div class="owl-carousel blogCarousal owl-theme  sm:left-0">
+                    {{-- item --}}
+                    <div class="item">
+                        <img src="{{ asset('images/blogs/cover (1).jpg') }}" alt="" srcset="" class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        </p>
+                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
+                        <x-primary-button>Read More</x-primary-button>
+
+                    </div>
+                    {{-- item --}}
+                    <div class="item">
+                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        </p>
+                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
+                        <x-primary-button>Read More</x-primary-button>
+
+                    </div>
+                    {{-- item --}}
+                    <div class="item">
+                        <img src="{{ asset('images/blogs/cover (3).jpg') }}" alt="" srcset="" class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        </p>
+                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
+                        <x-primary-button>Read More</x-primary-button>
+
+                    </div>
+                    {{-- item --}}
+                    <div class="item">
+                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        </p>
+                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
+                        <x-primary-button>Read More</x-primary-button>
+
+                    </div>
+                </div>
 
             </div>
-            {{-- item --}}
-            <div class="item">
-                <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
-                <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
-                </p>
-                <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                <x-primary-button>Read More</x-primary-button>
 
-            </div>
-            {{-- item --}}
-            <div class="item">
-                <img src="{{ asset('images/blogs/cover (3).jpg') }}" alt="" srcset="" class="mb-8">
-                <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
-                </p>
-                <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                <x-primary-button>Read More</x-primary-button>
-
-            </div>
-            {{-- item --}}
-            <div class="item">
-                <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
-                <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
-                </p>
-                <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                <x-primary-button>Read More</x-primary-button>
-
-            </div>
         </div>
     </div>
 

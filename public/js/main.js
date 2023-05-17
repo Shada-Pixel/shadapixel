@@ -16,7 +16,7 @@ $(".blogCarousal").owlCarousel({
             nav: false
         },
         1000: {
-            items: 3,
+            items: 4.5,
             nav: false
         }
     }
@@ -29,11 +29,8 @@ function toggleInnoPop() {
 }
 
 
-$(".innovationPop").click(function(event) {
-    if (!$(event.target).closest('.innovationPop').length && !$(event.target).is('.innovationPop')) {
-    //   $('.innovationPop').fadeOut();
-    $(".innovationPop").toggleClass('hidden flex');
 
-    }
-  });
+
+
+
 //
