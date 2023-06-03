@@ -3,7 +3,7 @@
     <x-foot-link :href="route('dashboard')">
         {{ __('Insight') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')">
+    <x-foot-link :href="route('story')">
         {{ __('Story') }}
     </x-foot-link>
     <x-foot-link :href="route('dashboard')">

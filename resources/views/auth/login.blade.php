@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="h-[70px] bg-nblue"></div>
+    <x-navbg/>
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4 mt-24" :status="session('status')" />

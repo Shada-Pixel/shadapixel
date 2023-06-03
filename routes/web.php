@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'index'])->name('home');
+// Route::get('/', [HomeController::class,'index'])->name('home');
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/story', 'story')->name('story');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -1,6 +1,7 @@
 <x-guest-layout>
 
-    <div class="h-[70px] bg-nblue"></div>
+    <x-navbg/>
+
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex justify-center items-center">
         <form method="POST" action="{{ route('register') }}">

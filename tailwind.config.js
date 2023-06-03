@@ -13,7 +13,8 @@ module.exports = {
             fontFamily: {
                 dm: ['DM Sans', 'sans-serif'],
                 mont: ['Montserrat', 'sans-serif'],
-                space: ['Space Grotesk', 'sans-serif']
+                space: ['Space Grotesk', 'sans-serif'],
+                // tround: ['Tsukimi Rounded', 'sans-serif']
             },
             colors: {
                 transparent: 'transparent',

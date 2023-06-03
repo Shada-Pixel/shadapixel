@@ -15,4 +15,11 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+
+    // Displaying story page
+    public function story(Request $request): View
+    {
+        return view('story');
+    }
 }

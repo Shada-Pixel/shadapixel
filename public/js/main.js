@@ -1,7 +1,7 @@
 // project carousel
 $(".blogCarousal").owlCarousel({
     loop: true,
-    margin: 10,
+    margin: 30,
     autoplay: true,
     autoplaySpeed: 1000,
     dots: false,
@@ -30,7 +30,15 @@ function toggleInnoPop() {
 
 
 
+$(document).ready(function() {
 
+    // Praimary button icon changing
+    $('.pbton').mouseenter(function() {
+      $(this).children('.pbcon').attr('data-icon', 'uil:arrow-right');
+    }).mouseout(function(){
+      $(this).children('.pbcon').attr('data-icon', 'uil:angle-right');
+    });
+});
 
 
 //

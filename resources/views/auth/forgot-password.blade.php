@@ -1,5 +1,6 @@
 <x-guest-layout>
-    <div class="h-[70px] bg-nblue"></div>
+    <x-navbg/>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col justify-center items-center">
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400 text-center max-w-3xl">

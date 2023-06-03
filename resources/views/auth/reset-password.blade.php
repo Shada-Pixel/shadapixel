@@ -1,5 +1,6 @@
 <x-guest-layout>
-    <div class="h-[70px] bg-nblue"></div>
+    <x-navbg/>
+
 
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
