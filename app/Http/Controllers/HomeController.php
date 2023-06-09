@@ -22,4 +22,9 @@ class HomeController extends Controller
     {
         return view('story');
     }
+    // Displaying contact page
+    public function contact(Request $request): View
+    {
+        return view('contact');
+    }
 }

@@ -300,7 +300,7 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <button
-                            class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['send'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-gray-900 overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Send</button>
+                            class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['send'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Send</button>
                     </div>
                 </form>
             </div>
@@ -356,15 +356,15 @@
 
                     <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
+                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
                                 data-icon="circum:facebook"></span></a>
-                        <a href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
+                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
                                 data-icon="circum:linkedin"></span></a>
-                        <a href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
+                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
                                 data-icon="circum:instagram"></span></a>
-                        <a href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
+                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
                                 data-icon="ph:behance-logo-bold"></span></a>
-                        <a href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
+                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
                                 data-icon="icon-park-outline:dribble"></span></a>
                     </div>
                 </div>

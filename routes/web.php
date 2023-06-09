@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QueryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/story', 'story')->name('story');
+    Route::get('/contact', 'contact')->name('contact');
 });
+
+Route::resource('queries', QueryController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
