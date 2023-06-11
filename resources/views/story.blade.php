@@ -85,9 +85,9 @@
                 <div class="mb-5">
                     <img src="{{ asset('images/members/member (2).jpg') }}" alt="" srcset=""
                         class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">UI/UX Designer</p>
+                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Web Developer</p>
 
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
+                    <h3 class="font-mont font-bold text-base sm:text-lg">MD. Sabbir Hussain</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
                         <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
                                 data-icon="circum:facebook"></span></a>
@@ -105,9 +105,9 @@
                 <div class="mb-5">
                     <img src="{{ asset('images/members/member (3).jpg') }}" alt="" srcset=""
                         class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">UI/UX Designer</p>
+                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">CMO</p>
 
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
+                    <h3 class="font-mont font-bold text-base sm:text-lg">Asif Shuvo</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
                         <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
                                 data-icon="circum:facebook"></span></a>
@@ -125,9 +125,9 @@
                 <div class="mb-5">
                     <img src="{{ asset('images/members/member (4).jpg') }}" alt="" srcset=""
                         class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">UI/UX Designer</p>
+                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Business Consultant</p>
 
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
+                    <h3 class="font-mont font-bold text-base sm:text-lg">Shadman Nazim</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
                         <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
                                 data-icon="circum:facebook"></span></a>
@@ -159,74 +159,74 @@
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset="" class="w-full">
+                <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset="" class="w-full">
+                <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset="" class="w-full">
+                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset=""
+                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
                     class="w-full">
             </div>
         </div>
