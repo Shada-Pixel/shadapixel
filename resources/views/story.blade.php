@@ -15,7 +15,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- heading --}}
             <div class="mb-10 text-center sm:mb-20 ">
-                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Welcome to ShadaPixel</h2>
+                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Welcome to Shada Pixel</h2>
             </div>
 
             {{-- serviece item --}}
