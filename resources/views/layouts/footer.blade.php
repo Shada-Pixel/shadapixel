@@ -1,4 +1,4 @@
-<footer class="bg-nblue text-white py-24">
+<footer class="text-white py-24 " style="background-image: url('{{ asset('images/footerbg.jpg') }}');">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="shrink-0 flex items-start">
             <a href="{{ route('home') }}">

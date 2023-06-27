@@ -23,6 +23,11 @@ module.exports = {
                 'nblue': '#101827',
                 'lightblack': '#52525B',
                 'cream': '#EFEEEA'
+            },
+            transitionDelay: {
+                '125': '125ms',
+                '175': '175ms',
+                '225': '225ms',
             }
         },
     },

@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 {{-- member --}}
-                <div class="mb-5">
+                {{-- <div class="mb-5">
                     <img src="{{ asset('images/members/member (4).jpg') }}" alt="" srcset=""
                         class="mb-8 w-full">
                     <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Business Consultant</p>
@@ -140,7 +140,7 @@
                         <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
                                 data-icon="icon-park-outline:dribble"></span></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

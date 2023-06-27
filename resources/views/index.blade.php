@@ -18,11 +18,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-5 space-y-5">
             {{-- heading --}}
             <div class="sm:col-span-2">
-                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Visionary ideas <br> for the future</h2>
+                <h2 class="font-mont font-bold text-3xl sm:text-5xl">Transforming Ideas<br> into Digital Success</h2>
             </div>
 
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-0">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">MARKETING</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Digital Marketing</h3>
                 <p>Our digital marketing service is designed to help businesses grow and reach their target audience
@@ -31,7 +31,7 @@
                     business goals.</p>
             </div>
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-75">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Graphic Design</h3>
                 <p>Our graphic design service helps businesses stand out from the crowd with stunning visual content.
@@ -39,7 +39,7 @@
                     only aesthetically pleasing but also communicate your brand message effectively.</p>
             </div>
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-100">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">UI / UX Design</h3>
                 <p>Our UI/UX design service is focused on creating engaging and user-friendly interfaces that provide a
@@ -48,7 +48,7 @@
                     of your target audience.</p>
             </div>
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-125">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">EDITING</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Video Editing</h3>
                 <p>Our video editing service helps businesses create compelling video content that engages their target
@@ -56,7 +56,7 @@
                     expertise in video editing to create content that tells your brand story effectively.</p>
             </div>
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-150">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">WEB</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Web Design</h3>
                 <p>Our web design service is focused on creating websites that not only look great but also function
@@ -64,7 +64,7 @@
                     craft a custom design that reflects their brand and engages their target audience.</p>
             </div>
             {{-- serviece item --}}
-            <div class="">
+            <div class="showOnScroll transition-all duration-500 ease-in-out delay-175">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">WEB</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Web Development</h3>
                 <p>Our web development service covers everything from simple landing pages to complex web applications.
@@ -320,6 +320,7 @@
 
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
             <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">Want to learn more?</h2>
+            <p>Discover our work of stunning digital projects that showcase our expertise and creativity.</p>
             <x-primary-button>Get in touch</x-primary-button>
             <div class="flex items-center gap-10 sm:gap-20 mt-16">
                 <div class="">
@@ -342,11 +343,11 @@
 
     {{-- team --}}
     <div class="py-12 sm:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-5">
             <div class="sm:w-1/2 mb-4 sm:mb-0">
                 <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">Team</h2>
-                <p>No postea cetero facilisi nec, eam ne nibeh sale fabellas.<br>Eruditi invidunt duo te, iusto
-                    adolescens prima.</p>
+                <p>At Shada Pixel, we are proud to have a team of highly skilled and creative individuals who are passionate about crafting exceptional digital experiences. Our diverse team is composed of talented web designers, web developers, graphic designers, UI/UX Designers, video editors, digital marketer and more.</p>
+                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['TEAM_MEMBER'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">TEAM MEMBER</button>
             </div>
             <div class="sm:w-1/2 grid grid-cols-2 gap-5">
 
@@ -414,7 +415,7 @@
                 </div>
 
                 {{-- member --}}
-                <div class="mb-5">
+                {{-- <div class="mb-5">
                     <img src="{{ asset('images/members/member (5).jpg') }}" alt="" srcset=""
                         class="mb-8">
                     <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Video Editor</p>
@@ -432,7 +433,7 @@
                         <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
                                 data-icon="icon-park-outline:dribble"></span></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
