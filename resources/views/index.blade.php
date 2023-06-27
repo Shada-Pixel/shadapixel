@@ -18,7 +18,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-5 space-y-5">
             {{-- heading --}}
             <div class="sm:col-span-2">
-                <h2 class="font-mont font-bold text-3xl sm:text-5xl">Transforming Ideas<br> into Digital Success</h2>
+                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Transforming<br> Ideas into Digital <span class="">Success</span> </h2>
             </div>
 
             {{-- serviece item --}}
