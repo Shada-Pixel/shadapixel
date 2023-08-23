@@ -50,6 +50,8 @@ select:focus {
 }
 
 
+
+/* Preeloader Animation */
 @keyframes movePath {
 
     0%,
@@ -67,3 +69,9 @@ select:focus {
 #ecONfIwDeMG2 {
     animation: movePath 2s linear infinite;
 }
+
+
+/* Progress bar color */
+progress::-moz-progress-bar { background: #15b6a4; }
+progress::-webkit-progress-value { background: #15b6a4; }
+progress { color: #15b6a4; }
