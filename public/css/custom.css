@@ -48,3 +48,22 @@ select:focus {
     transform: translateY(0);
     opacity: 1;
 }
+
+
+@keyframes movePath {
+
+    0%,
+    100% {
+        transform: translateX(-60%);
+        /* left: 0; */
+    }
+
+    50% {
+        transform: translateX(100px);
+        /* Adjust the width of the SVG here */
+    }
+}
+
+#ecONfIwDeMG2 {
+    animation: movePath 2s linear infinite;
+}
