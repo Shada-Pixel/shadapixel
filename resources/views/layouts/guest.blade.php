@@ -80,7 +80,7 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('#loader').addClass('hidden');
+            // $('#loader').addClass('hidden');
         });
     </script>
 
