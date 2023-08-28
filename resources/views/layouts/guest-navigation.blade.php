@@ -25,21 +25,19 @@
                     <div class="flex items-center cursor-pointer">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
-                                <x-nav-link  :active="request()->routeIs('contact')">
+                                <x-nav-link  :active="request()->routeIs('works.*')">
                                     {{ __('Work') }}<span class="iconify ml-2" data-icon="mingcute:down-line"></span>
                                 </x-nav-link>
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('works.uiux')">
-                                    {{ __('UI/UX Design') }}
+                                @foreach ($workcat as $item)
+
+                                <x-dropdown-link :href="route('categories.show', $item->slug)">
+                                    {{ __($item->name) }}
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Web Development') }}
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Digital Marketing') }}
-                                </x-dropdown-link>
+
+                                @endforeach
                             </x-slot>
                         </x-dropdown>
                     </div>
