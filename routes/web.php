@@ -22,6 +22,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/story', 'story')->name('story');
     Route::get('/contact', 'contact')->name('contact');
+    Route::get('/career', 'career')->name('career');
+    Route::get('/works/uiux', 'uiux')->name('works.uiux');
 });
 
 Route::resource('queries', QueryController::class);

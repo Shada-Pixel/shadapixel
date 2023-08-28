@@ -22,9 +22,25 @@ class HomeController extends Controller
     {
         return view('story');
     }
+
+
     // Displaying contact page
     public function contact(Request $request): View
     {
         return view('contact');
+    }
+
+    // Displaying career page
+    public function career(Request $request): View
+    {
+        return view('career');
+    }
+
+
+
+    // Displaying uiux work page
+    public function uiux(Request $request): View
+    {
+        return view('works.uiux');
     }
 }

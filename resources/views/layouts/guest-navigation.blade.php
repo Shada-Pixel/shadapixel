@@ -21,15 +21,37 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Service') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Work') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <!-- Work Dropdown -->
+                    <div class="flex items-center cursor-pointer">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <x-nav-link  :active="request()->routeIs('contact')">
+                                    {{ __('Work') }}<span class="iconify ml-2" data-icon="mingcute:down-line"></span>
+                                </x-nav-link>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('works.uiux')">
+                                    {{ __('UI/UX Design') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{ __('Web Development') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{ __('Digital Marketing') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+                    <x-nav-link :href="route('career')" :active="request()->routeIs('career')">
                         {{ __('Career') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
+
+
+
                 </div>
             </div>
 

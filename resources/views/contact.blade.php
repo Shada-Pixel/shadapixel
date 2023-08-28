@@ -71,7 +71,4 @@
     </div>
 
 
-
-
-
 </x-guest-layout>

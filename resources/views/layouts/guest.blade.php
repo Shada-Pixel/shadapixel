@@ -26,8 +26,14 @@
 </head>
 
 <body class="font-space text-nblue antialiased relative ">
+
+    {{-- Image pop --}}
+    @if (isset($imagepop))
+    {{ $imagepop }}
+    @endif
+
     {{-- Preeloder --}}
-    <div class="w-screen h-screen bg-white fixed z-[11111] flex justify-center items-center" id="preeloader">
+    <div class="w-screen h-screen bg-white fixed z-[11112] flex justify-center items-center" id="preeloader">
 
         <div class="w-80">
             <svg id="ecONfIwDeMG1" class="relative" xmlns="http://www.w3.org/2000/svg"
@@ -48,18 +54,17 @@
         </div>
     </div>
     {{-- scroll Progress --}}
-    <progress
-        class="w-full h-1 fixed bottom-0 z-[1111] p-0 bg-transparent text-seagreen transition-all duration-75 ease-in-out"
+    <progress class="w-full h-1 fixed bottom-0 z-[1111] p-0 bg-transparent text-seagreen transition-all duration-75 ease-in-out"
         aria-hidden="true" max="100" value="0" id="scrollprogress"></progress>
     {{-- Mouse Follower --}}
     {{-- <div id="box"
         class="hidden sm:block absolute w-10 h-10 top-1/2 left-1/2 rounded-full bg-seagreen/20 transition duration-1000 ease-in-out">
     </div> --}}
 
-
-    <button id="backtotop"
-        class="fixed right-5 bottom-5 z-[1111] w-10 bg-seagreen h-10 hidden justify-center items-center text-white text-2xl hover:scale-110 hover:shadow-lg hover:shadow-seagreen/50 transition duration-200 ease-in-out "><span
-            class="iconify" data-icon="icon-park-outline:double-up"></span></button>
+    {{-- back to top --}}
+    <button id="backtotop" class="fixed right-5 bottom-5 z-[11111] w-10 bg-seagreen h-10 hidden justify-center items-center text-white text-2xl hover:scale-110 hover:shadow-lg hover:shadow-seagreen/50 transition duration-200 ease-in-out ">
+        <span class="iconify" data-icon="icon-park-outline:double-up"> </span>
+    </button>
 
 
 
@@ -131,6 +136,10 @@
             }, '300');
         });
     </script>
+
+    @if (isset($script))
+        {{ $script }}
+    @endif
 
 </body>
 
