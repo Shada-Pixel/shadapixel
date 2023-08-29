@@ -43,4 +43,9 @@ class HomeController extends Controller
     {
         return view('works.uiux');
     }
+    // Displaying dashboard work page
+    public function dashboard(Request $request): View
+    {
+        return view('admin.dashboard');
+    }
 }

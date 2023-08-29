@@ -24,15 +24,13 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/story', 'story')->name('story');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/career', 'career')->name('career');
-    // Route::get('/works/uiux', 'uiux')->name('works.uiux');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
 });
 
 Route::resource('queries', QueryController::class);
 Route::resource('categories', CategoryController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
