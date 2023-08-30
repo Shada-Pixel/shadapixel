@@ -26,7 +26,7 @@
         <!-- Page Title -->
         <div class="me-auto">
             <div class="md:flex hidden">
-                <h4 class="page-title text-lg">Dashboard</h4>
+                <h4 class="page-title text-lg">@if (isset($title)) {{ $title }} @endif</h4>
             </div>
         </div>
 
