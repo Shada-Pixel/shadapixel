@@ -29,7 +29,7 @@
 
             {{-- Contact Form --}}
             <div class="text-center sm:w-1/2 mt-10 sm:mt-0">
-                <form method="POST" action="{{ route('queries.store') }}">
+                <form method="POST" action="{{ route('queries.store') }}" id="contactusform">
                     @csrf
 
                     <!-- Name -->
@@ -66,9 +66,45 @@
                         </button>
                     </div>
                 </form>
+                <p class="text-left text-seagreen" id="subscriptionsuccess"></p>
             </div>
         </div>
     </div>
+
+    <x-slot name="script">
+
+        <script>
+            let cf = $('form#contactusform');
+
+
+            cf.submit(function (e) {
+                e.preventDefault();
+
+                let subscribed = $('#subscriptionsuccess');
+                $.ajax({
+                    method: 'POST',
+                    url: BASE_URL + 'queries',
+                    data: cf.serialize(),
+
+                    success: function (response) {
+
+                        if (response.status == "success") {
+                            subscribed.html(response.message);
+                            cf.trigger("reset");
+                            setTimeout(function () {
+                                subscribed.html('');
+                            }, 5000);
+                        } else if (response.status == "error") {
+                            subscribed.html(response.message);
+                            setTimeout(function () {
+                                subscribed.html('');
+                            }, 5000);
+                        }
+                    }
+                });
+            });
+        </script>
+    </x-slot>
 
 
 </x-guest-layout>

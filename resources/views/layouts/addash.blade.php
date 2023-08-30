@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Adminto - Tailwind HTML Admin Dashboard Template, A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="coderthemes" name="author">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('admindash/asset/images/favicon.ico')}}">
@@ -18,12 +19,21 @@
     <!-- Icons css -->
     <link href="{{asset('admindash/asset/css/icons.min.css')}}" rel="stylesheet" type="text/css">
 
+    {{-- Header style --}}
+    @if (isset($headerstyle))
+        {{ $headerstyle }}
+    @endif
+
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Theme Config Js -->
     <script src="{{asset('admindash/asset/js/config.js')}}"></script>
+    <script>
+        let BASE_URL = {!! json_encode(url('/')) !!} + "/";
+    </script>
 </head>
 
 <body>
@@ -80,7 +90,7 @@
     <script src="{{asset('admindash/asset/libs/morris.js06/morris.min.js')}}"></script>
     <script src="{{asset('admindash/asset/libs/raphael/raphael.min.js')}}"></script>
 
-    
+
 
     @if (isset($script))
     {{ $script }}

@@ -108,13 +108,13 @@
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-email-outline"></i></span>
-                    <span class="menu-text"> Email </span>
+                    <span class="menu-text"> Contact Query </span>
                     <span class="menu-arrow"></span>
                 </a>
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="email-inbox.html" class="menu-link">
+                        <a href="{{route('queries.index')}}" class="menu-link">
                             <span class="menu-text">Inbox</span>
                         </a>
                     </li>

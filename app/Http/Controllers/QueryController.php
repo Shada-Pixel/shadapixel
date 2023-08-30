@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Query;
 use App\Http\Requests\StoreQueryRequest;
 use App\Http\Requests\UpdateQueryRequest;
+use Illuminate\Http\Request;
 
 class QueryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        if ($request->ajax()) {
+            $queries =  Query::all();
+            return response()->json(['data' => $queries],200);
+        }
+
+
+        return view('admin.queries.index');
     }
 
     /**
@@ -29,8 +37,17 @@ class QueryController extends Controller
      */
     public function store(StoreQueryRequest $request)
     {
-        //
+
+        $query = Query::create([
+            'name'=> $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message
+        ]);
+
+        return response()->json(['status' => 'success', 'message' => 'Thanks for contacting us!']);
     }
+
 
     /**
      * Display the specified resource.
