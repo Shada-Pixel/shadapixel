@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() : View
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            return Datatables::of( Category::query())->addIndexColumn()->make(true);
+        }
         return view('admin.categories.index');
     }
 
@@ -22,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -30,7 +35,14 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $category = Category::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'keywords' => $request->keywords,
+            'mode' => $request->mode
+        ]);
+
+        return redirect()->route('categories.index')->with(['message' => 'Category created successfully']);
     }
 
     /**
@@ -47,9 +59,14 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($slug)
     {
-        //
+
+        return $slug;
+        $category = Category::where('slug',$slug)->first();
+        return view('admin.categories.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**

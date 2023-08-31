@@ -29,7 +29,7 @@ class QueryController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

@@ -4,14 +4,14 @@
     <a href="index.html" class="logo-box">
         <!-- Light Brand Logo -->
         <div class="logo-light">
-            <img src="{{asset('admindash/asset/images/logo-light.png')}}" class="logo-lg" alt="Light logo">
-            <img src="{{asset('admindash/asset/images/logo-sm.png')}}" class="logo-sm" alt="Small logo">
+            <img src="{{asset('logow.png')}}" class="logo-lg" alt="Light logo">
+            <img src="{{asset('favicon.png')}}" class="logo-sm" alt="Small logo">
         </div>
 
         <!-- Dark Brand Logo -->
         <div class="logo-dark">
-            <img src="{{asset('admindash/asset/images/logo-dark.png')}}" class="logo-lg" alt="Dark logo">
-            <img src="{{asset('admindash/asset/images/logo-sm.png')}}" class="logo-sm" alt="Small logo">
+            <img src="{{asset('logo.png')}}" class="logo-lg" alt="Dark logo">
+            <img src="{{asset('favicon.png')}}" class="logo-sm" alt="Small logo">
         </div>
     </a>
 

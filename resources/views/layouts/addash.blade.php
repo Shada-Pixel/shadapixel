@@ -7,11 +7,11 @@
     <title>@if (isset($title)) {{ $title }} @endif | Pixadmin - Shada Pixel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Adminto - Tailwind HTML Admin Dashboard Template, A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
-    <meta content="coderthemes" name="author">
+    <meta content="shadapixel" name="author">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('admindash/asset/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
     <!-- App css -->
     <link href="{{asset('admindash/asset/css/app.min.css')}}" rel="stylesheet" type="text/css">
@@ -31,6 +31,7 @@
 
     <!-- Theme Config Js -->
     <script src="{{asset('admindash/asset/js/config.js')}}"></script>
+
     <script>
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";
     </script>
