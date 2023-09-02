@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Category;
+
 
 
 class HomeController extends Controller
@@ -48,4 +50,14 @@ class HomeController extends Controller
     {
         return view('admin.dashboard');
     }
+
+
+    public function industries($industry)
+    {
+        $industry = Category::with('projects')->where('slug', $industry)->first();
+        return view('works.index', [
+            'industry' => $industry,
+        ]);
+    }
+
 }

@@ -13,30 +13,31 @@
         <div class="card">
             <div class="p-6">
 
-                <form action="{{route('projects.store')}}" method="post" enctype="multipart/form-data">
-                <div class="grid lg:grid-cols-2 gap-5">
+                <form action="{{ route('projects.store') }}" method="post" enctype="multipart/form-data">
+                    <div class="grid lg:grid-cols-2 gap-5">
                         @csrf
                         @method('post')
 
 
                         <div>
                             <label for="name" class="block mb-2">Name</label>
-                            <input type="text" class="form-input" id="name"  name="name" required>
+                            <input type="text" class="form-input" id="name" name="name" required>
                         </div> <!-- end -->
 
                         <div>
                             <label for="slug" class="block mb-2">Slug</label>
-                            <input type="text" class="form-input" id="slug"  name="slug" required="" readonly>
+                            <input type="text" class="form-input" id="slug" name="slug" required=""
+                                readonly>
                         </div> <!-- end -->
 
                         <div>
                             <label for="keywords" class="block mb-2">Keywords</label>
-                            <input type="text" class="form-input" id="keywords"  name="keywords" required="">
+                            <input type="text" class="form-input" id="keywords" name="keywords" required="">
                         </div> <!-- end -->
 
                         <div>
                             <label for="tools" class="block mb-2">Tools</label>
-                            <input type="text" class="form-input" id="tools"  name="tools" required="">
+                            <input type="text" class="form-input" id="tools" name="tools" required="">
                         </div> <!-- end -->
 
                         <div>
@@ -44,7 +45,7 @@
                             <select class="form-select" id="category_id" name="category_id" required>
                                 <option selected="" disabled value="">Choose...</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div> <!-- end -->
@@ -63,7 +64,7 @@
 
                         <div>
                             <label for="link" class="block mb-2">Live Preview</label>
-                            <input type="text" class="form-input" id="link"  name="link" required="">
+                            <input type="text" class="form-input" id="link" name="link" required="">
                         </div> <!-- end -->
 
 
@@ -83,7 +84,8 @@
 
 
                         <div class="lg:col-span-2 mt-3">
-                            <button class="btn bg-seagreen " type="submit">Save</button>
+                            <button type="submit"
+                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SAVE'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Save</button>
                         </div> <!-- end button -->
 
 
@@ -100,7 +102,7 @@
 
     <x-slot name="script">
         <script>
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $("form #name").on('blur', () => {
                     const slug = slugify($("form #name").val());
                     $("form #slug").val(slug);
@@ -109,6 +111,3 @@
         </script>
     </x-slot>
 </x-admin-layout>
-
-
-

@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">Categories</x-slot>
+    <x-slot name="title">Projects</x-slot>
 
 
     {{-- Header Style --}}
@@ -60,14 +60,14 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex flex-col sm:flex-row gap-1 justify-end">
-                                <a href="${BASE_URL}projects/${data.slug}" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-4 mx-1 hover:bg-blue-700" >
+                            return `<div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
+                                <a href="${BASE_URL}projects/${data.slug}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-3xl" >
                                     <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
                                 </a>
-                                <a href="${BASE_URL}projects/${data.slug}/edit" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-4 mx-1 hover:bg-blue-700" >
+                                <a href="${BASE_URL}projects/${data.slug}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-3xl" >
                                     <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
                                 </a>
-                                <button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-4 mx-1 hover:bg-red-700" onclick="projectDelete(${data.id});">
+                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-3xl" onclick="projectDelete(${data.id});">
                                     <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                                     </button>
                                 </div>`;
@@ -79,45 +79,35 @@
 
             function projectDelete(slug) {
 
-                $.ajax({
-                    method: 'DELETE',
-                    url: BASE_URL + 'projects/' + slug,
-                    success: function(response) {
-                        if (response.status == "success") {
-                            // Swal.fire('Success!', response.message, 'success');
-                            datatablelist.draw();
-                        } else if (response.status == "error") {
-                            // Swal.fire('Not deletable!', response.message, 'error');
-                            datatablelist.draw();
-                        }
+
+                Swal.fire({
+                    title: "Delete ?",
+                    text: "Are you sure to delete this Project ?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "Delete",
+                    background: 'rgba(255, 255, 255, 0.6)',
+                    padding: '20px',
+                    confirmButtonColor: '#0db8a6',
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            method: 'DELETE',
+                            url: BASE_URL + 'projects/' + slug,
+                            success: function(response) {
+                                if (response.status == "success") {
+                                    Swal.fire('Success!', response.message, 'success');
+                                    datatablelist.draw();
+                                } else if (response.status == "error") {
+                                    Swal.fire('Not deletable!', response.message, 'error');
+                                    datatablelist.draw();
+                                }
+                            }
+                        });
                     }
                 });
-
-                // Swal.fire({
-                //     title: "Delete ?",
-                //     text: "Are you sure to delete this Project ?",
-                //     icon: 'warning',
-                //     showCancelButton: true,
-                //     confirmButtonColor: '#3085d6',
-                //     cancelButtonColor: '#d33',
-                //     confirmButtonText: "Delete",
-                // }).then((result) => {
-                //     if (result.value) {
-                //         $.ajax({
-                //             method: 'DELETE',
-                //             url: BASE_URL + 'projects/' + slug,
-                //             success: function(response) {
-                //                 if (response.status == "success") {
-                //                     Swal.fire('Success!', response.message, 'success');
-                //                     datatablelist.draw();
-                //                 } else if (response.status == "error") {
-                //                     Swal.fire('Not deletable!', response.message, 'error');
-                //                     datatablelist.draw();
-                //                 }
-                //             }
-                //         });
-                //     }
-                // });
             }
         </script>
     </x-slot>

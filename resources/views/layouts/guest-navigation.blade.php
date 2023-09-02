@@ -33,7 +33,7 @@
                             <x-slot name="content">
                                 @foreach ($workcat as $item)
 
-                                <x-dropdown-link :href="route('categories.show', $item->slug)">
+                                <x-dropdown-link :href="route('industries.show', $item->slug)">
                                     {{ __($item->name) }}
                                 </x-dropdown-link>
 

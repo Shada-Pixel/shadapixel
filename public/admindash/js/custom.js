@@ -15,6 +15,18 @@ $('input.onlynumber').keyup(function(e){
 });
 
 
+// success notification
+setTimeout(function () { $("#notificationflush").fadeOut(1000) }, 3000);
+
+function hideflash() {
+    setTimeout(function () { $("#notificationflush").fadeOut(150) });
+}
+
+$('input[required], textarea[required], select[required]').each(function () {
+    $(this).prev('label').append('<span class="text-red-500">*</span>');
+});
+
+
 
 // This function is to make product slug
 function slugify(string){

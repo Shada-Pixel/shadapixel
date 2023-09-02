@@ -1,7 +1,7 @@
 <div class="app-menu">
 
     <!-- Sidenav Brand Logo -->
-    <a href="index.html" class="logo-box">
+    <a href="{{route('dashboard')}}" class="logo-box">
         <!-- Light Brand Logo -->
         <div class="logo-light">
             <img src="{{asset('logow.png')}}" class="logo-lg" alt="Light logo">
@@ -20,7 +20,7 @@
     <!--- Menu -->
     <div data-simplebar="">
         <!-- User Box -->
-        <div class="user-box relative text-center mt-5">
+        {{-- <div class="user-box relative text-center mt-5 hidden">
             <img src="{{asset('admindash/asset/images/users/user-1.jpg')}}" alt="user-image" class="rounded-full h-14 w-14 p-1 border border-gray-300/30 mx-auto mb-3">
             <div>
                 <button data-fc-type="dropdown" data-fc-placement="bottom" type="button" class="user-name text-[15px] font-medium mb-1.5">Nowak Helme</button>
@@ -63,17 +63,17 @@
                     <i class="mdi mdi-power text-base"></i>
                 </a>
             </div>
-        </div>
+        </div> --}}
 
         <ul class="menu" data-fc-type="accordion">
             <li class="menu-title">Navigation</li>
 
-            <li class="menu-item">
+            {{-- <li class="menu-item">
                 <a href="{{route('dashboard')}}" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-view-dashboard-outline"></i></span>
                     <span class="menu-text"> Dashboard </span>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu-item">
                 <a href="{{route('home')}}" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-eye"></i></span>

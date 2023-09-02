@@ -19,7 +19,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center  text-white h-full">
             <div class="text-center w-full">
                 <h1 class="font-mont font-regular text-4xl sm:text-7xl uppercase"><span
-                        class="font-bold ml-4">{!!$category->name!!}</span> </h1>
+                        class="font-bold ml-4">{!!$industry->name!!}</span> </h1>
                         {{-- No Vacancy Available --}}
             </div>
         </div>
@@ -31,80 +31,35 @@
     <section class="py-12 sm:py-24 bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-5">
 
+            @forelse ($industry->projects as $project)
+
             {{-- individual Project --}}
             <div class=" ">
                 <div class="">
-                    <p class="mb-1">October 15, 2023</p>
-                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">Smart Intro</h2>
+                    <p class="mb-1">{{ date('M d, Y', strtotime($project->delivery_date)) }}</p>
+                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">{{$project->name}}</h2>
                 </div>
-                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out relative" style="background-image: url({{asset('images/poptest.jpg')}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
-                    <div class="flex gap-2 absolute bottom-0 right-0">
-                        {{-- Technology used --}}
-                        <div class="bg-white/40 backdrop-blur-sm w-10 aspect-square flex justify-center items-center p-2"><span class="iconify text-2xl" data-icon="devicon:laravel"></span></div>
-                        <div class="bg-white/40 backdrop-blur-sm w-10 aspect-square flex justify-center items-center p-2"><span class="iconify text-2xl" data-icon="devicon:figma"></span></div>
-                    </div>
+                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out" style="background-image: url({{asset($project->cover_work)}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
                 </div>
-                <a href="https://www.figma.com/proto/UPg1klTgAMtsriQl52q65S/Smart-Intro?type=design&t=RtNsOciSN3sW1rty-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A30&node-id=2-30&mode=design" target="_blank">
+                <div class="flex gap-2 mt-2">
 
+                    @foreach(explode(',', $project->tools) as $tool)
+                        <div class="bg-white/40 hover:bg-white backdrop-blur-sm w-10 aspect-square flex justify-center items-center p-2"><span class="iconify text-2xl" data-icon="devicon:{{$tool}}"></span></div>
+                    @endforeach
+                    {{-- Technology used --}}
+                    <div class="bg-white/40 backdrop-blur-sm w-10 aspect-square flex justify-center items-center p-2"><span class="iconify text-2xl" data-icon="devicon:figma"></span></div>
+                </div>
+                @if ($project->link)
+
+                <a href="{{$project->link}}" target="_blank">
                     <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['LIVE_PREVIEW'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">LIVE PREVIEW</button>
                 </a>
+                @endif
             </div>
-            {{-- individual Project --}}
-            <div class=" ">
-                <div class="">
-                    <p class="mb-1">October 15, 2023</p>
-                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">Smart Intro</h2>
-                </div>
-                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out" style="background-image: url({{asset('images/poptest.jpg')}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
+            @empty
 
-                </div>
-                <a href="https://www.figma.com/proto/UPg1klTgAMtsriQl52q65S/Smart-Intro?type=design&t=RtNsOciSN3sW1rty-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A30&node-id=2-30&mode=design" target="_blank">
+            @endforelse
 
-                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['LIVE_PREVIEW'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">LIVE PREVIEW</button>
-                </a>
-            </div>
-            {{-- individual Project --}}
-            <div class=" ">
-                <div class="">
-                    <p class="mb-1">October 15, 2023</p>
-                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">Smart Intro</h2>
-                </div>
-                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out" style="background-image: url({{asset('images/poptest.jpg')}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
-
-                </div>
-                <a href="https://www.figma.com/proto/UPg1klTgAMtsriQl52q65S/Smart-Intro?type=design&t=RtNsOciSN3sW1rty-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A30&node-id=2-30&mode=design" target="_blank">
-
-                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['LIVE_PREVIEW'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">LIVE PREVIEW</button>
-                </a>
-            </div>
-            {{-- individual Project --}}
-            <div class=" ">
-                <div class="">
-                    <p class="mb-1">October 15, 2023</p>
-                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">Smart Intro</h2>
-                </div>
-                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out" style="background-image: url({{asset('images/poptest.jpg')}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
-
-                </div>
-                <a href="https://www.figma.com/proto/UPg1klTgAMtsriQl52q65S/Smart-Intro?type=design&t=RtNsOciSN3sW1rty-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A30&node-id=2-30&mode=design" target="_blank">
-
-                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['LIVE_PREVIEW'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">LIVE PREVIEW</button>
-                </a>
-            </div>
-            {{-- individual Project --}}
-            <div class=" ">
-                <div class="">
-                    <p class="mb-1">October 15, 2023</p>
-                    <h2 class="font-mont font-bold text-3xl sm:text-3xl mb-4">Smart Intro</h2>
-                </div>
-                <div class="w-full aspect-square bg-no-repeat bg-center bg-cover hover:scale-105 transition-all duration-150 ease-in-out" style="background-image: url({{asset('images/poptest.jpg')}})" onclick="imagepop('{{asset('images/poptest.jpg')}}')">
-
-                </div>
-                <a href="https://www.figma.com/proto/UPg1klTgAMtsriQl52q65S/Smart-Intro?type=design&t=RtNsOciSN3sW1rty-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A30&node-id=2-30&mode=design" target="_blank">
-
-                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['LIVE_PREVIEW'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">LIVE PREVIEW</button>
-                </a>
-            </div>
 
 
         </div>

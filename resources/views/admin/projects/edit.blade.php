@@ -83,6 +83,8 @@
 
                         <div class="lg:col-span-2 mt-3">
                             <button class="btn bg-seagreen " type="submit">Update</button>
+                            <button type="submit"
+                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['UPDATE'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Update</button>
                         </div> <!-- end button -->
 
 

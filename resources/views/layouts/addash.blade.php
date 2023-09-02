@@ -19,6 +19,11 @@
     <!-- Icons css -->
     <link href="{{asset('admindash/asset/css/icons.min.css')}}" rel="stylesheet" type="text/css">
 
+    {{-- Custom css --}}
+    <link rel="stylesheet" href="{{asset('admindash/asset/css/custom.css')}}">
+    {{-- Custom Data table --}}
+    <link rel="stylesheet" href="{{asset('css/datatable-customization.css')}}">
+
     {{-- Header style --}}
     @if (isset($headerstyle))
         {{ $headerstyle }}
@@ -37,7 +42,7 @@
     </script>
 </head>
 
-<body>
+<body class="font-space">
 
     <div class="flex wrapper">
 
@@ -56,7 +61,8 @@
             @include('layouts.adminheader')
             <!-- Topbar End -->
 
-            <main class="p-6">
+            <main class="p-6 relative">
+                <x-auth-session-status :status="Session::get('message')" id="notificationflush" onclick="hideflash()"></x-auth-session-status>
                 {{ $slot }}
             </main>
 
@@ -90,6 +96,8 @@
     <!--Morris Chart-->
     <script src="{{asset('admindash/asset/libs/morris.js06/morris.min.js')}}"></script>
     <script src="{{asset('admindash/asset/libs/raphael/raphael.min.js')}}"></script>
+    {{-- Sweet alert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     {{-- Custom js --}}
     <script src="{{asset('admindash/js/custom.js')}}"></script>

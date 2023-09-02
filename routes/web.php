@@ -27,7 +27,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/career', 'career')->name('career');
     Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/industries/{industry}', 'industries')->name('industries.show');
 });
+
 
 Route::resource('queries', QueryController::class);
 Route::resource('categories', CategoryController::class);

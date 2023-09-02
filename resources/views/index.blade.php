@@ -18,7 +18,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-5 space-y-5">
             {{-- heading --}}
             <div class="sm:col-span-2">
-                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Transforming<br> Ideas into Digital <span class="">Success</span> </h2>
+                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Transforming<br> Ideas into Digital <span
+                        class="">Success</span> </h2>
             </div>
 
             {{-- serviece item --}}
@@ -77,14 +78,15 @@
 
     {{-- blog --}}
     <div class="py-12 sm:py-24 overflow-hidden">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  flex gap-5 relative ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  flex gap-5 relative ">
             <div class="sm:min-w-[100vw] ">
                 <div class="owl-carousel blogCarousal owl-theme  sm:left-0">
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset('images/blogs/cover (1).jpg') }}" alt="" srcset="" class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        <img src="{{ asset('images/blogs/cover (1).jpg') }}" alt="" srcset=""
+                            class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
+                            02, 2023
                         </p>
                         <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
                         <x-primary-button>Read More</x-primary-button>
@@ -92,8 +94,10 @@
                     </div>
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset=""
+                            class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
+                            02, 2023
                         </p>
                         <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
                         <x-primary-button>Read More</x-primary-button>
@@ -101,8 +105,10 @@
                     </div>
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset('images/blogs/cover (3).jpg') }}" alt="" srcset="" class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        <img src="{{ asset('images/blogs/cover (3).jpg') }}" alt="" srcset=""
+                            class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
+                            02, 2023
                         </p>
                         <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
                         <x-primary-button>Read More</x-primary-button>
@@ -110,8 +116,10 @@
                     </div>
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset="" class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN 02, 2023
+                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset=""
+                            class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
+                            02, 2023
                         </p>
                         <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
                         <x-primary-button>Read More</x-primary-button>
@@ -154,13 +162,13 @@
         class="fixed h-screen w-full bg-nblue/40 z-[9999] top-0 left-0 hidden justify-center items-start sm:items-center overflow-y-scroll innovationPop">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-10  bg-white relative">
 
-                {{-- button --}}
-                <div class="bg-nblue/40 p-1 absolute top-4 right-4" onclick="toggleInnoPop()">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </div>
+            {{-- button --}}
+            <div class="bg-nblue/40 p-1 absolute top-4 right-4" onclick="toggleInnoPop()">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
             <div class="">
                 <h2 class="font-mont font-bold text-5xl mb-10">Innovative Ideas</h2>
 
@@ -225,57 +233,49 @@
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset="" class="w-full">
             </div>
 
 
             {{-- client --}}
             <div class="">
-                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
-                    class="w-full">
+                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset="" class="w-full">
             </div>
         </div>
     </div>
@@ -346,8 +346,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-5">
             <div class="sm:w-1/2 mb-4 sm:mb-0">
                 <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">Team</h2>
-                <p>At Shada Pixel, we are proud to have a team of highly skilled and creative individuals who are passionate about crafting exceptional digital experiences. Our diverse team is composed of talented web designers, web developers, graphic designers, UI/UX Designers, video editors, digital marketer and more.</p>
-                    <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['TEAM_MEMBER'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">TEAM MEMBER</button>
+                <p>At Shada Pixel, we are proud to have a team of highly skilled and creative individuals who are
+                    passionate about crafting exceptional digital experiences. Our diverse team is composed of talented
+                    web designers, web developers, graphic designers, UI/UX Designers, video editors, digital marketer
+                    and more.</p>
+                <button
+                    class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['TEAM_MEMBER'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">TEAM
+                    MEMBER</button>
             </div>
             <div class="sm:w-1/2 grid grid-cols-2 gap-5">
 
@@ -359,16 +364,16 @@
 
                     <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
-                                data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
-                                data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
-                                data-icon="icon-park-outline:dribble"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/"
+                            target="_blank"><span class="iconify" data-icon="circum:facebook"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed"
+                            target="_blank"><span class="iconify" data-icon="ph:behance-logo-bold"></span></a>
+                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
+                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
                     </div>
                 </div>
 
@@ -380,16 +385,16 @@
 
                     <h3 class="font-mont font-bold text-base sm:text-lg">MD. Sabbir Hussain</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
-                                data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
-                                data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
-                                data-icon="icon-park-outline:dribble"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/"
+                            target="_blank"><span class="iconify" data-icon="circum:facebook"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed"
+                            target="_blank"><span class="iconify" data-icon="ph:behance-logo-bold"></span></a>
+                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
+                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
                     </div>
                 </div>
 
@@ -401,16 +406,16 @@
 
                     <h3 class="font-mont font-bold text-base sm:text-lg">Asif Shuvo</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
-                                data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
-                                data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
-                                data-icon="icon-park-outline:dribble"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/"
+                            target="_blank"><span class="iconify" data-icon="circum:facebook"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
+                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
+                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed"
+                            target="_blank"><span class="iconify" data-icon="ph:behance-logo-bold"></span></a>
+                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
+                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
                     </div>
                 </div>
 
