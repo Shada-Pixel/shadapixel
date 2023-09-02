@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QueryController;
 use \App\Http\Controllers\Actions\FetchCategoryController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::resource('queries', QueryController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('projects', ProjectController::class);
 
 
 

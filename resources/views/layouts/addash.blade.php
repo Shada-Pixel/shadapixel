@@ -91,6 +91,9 @@
     <script src="{{asset('admindash/asset/libs/morris.js06/morris.min.js')}}"></script>
     <script src="{{asset('admindash/asset/libs/raphael/raphael.min.js')}}"></script>
 
+    {{-- Custom js --}}
+    <script src="{{asset('admindash/js/custom.js')}}"></script>
+
 
 
     @if (isset($script))

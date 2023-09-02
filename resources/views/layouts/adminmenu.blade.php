@@ -104,6 +104,27 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <span class="menu-icon"><i class="mdi mdi-briefcase-variant-outline"></i></span>
+                    <span class="menu-text"> Projects </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('projects.index')}}" class="menu-link">
+                            <span class="menu-text">All</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('projects.create')}}" class="menu-link">
+                            <span class="menu-text">Add New</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
@@ -163,12 +184,7 @@
                 </ul>
             </li>
 
-            <li class="menu-item">
-                <a href="apps-projects.html" class="menu-link">
-                    <span class="menu-icon"><i class="mdi mdi-briefcase-variant-outline"></i></span>
-                    <span class="menu-text"> Projects </span>
-                </a>
-            </li>
+
 
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
