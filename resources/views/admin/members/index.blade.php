@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">Projects</x-slot>
+    <x-slot name="title">Team Members</x-slot>
 
 
     {{-- Header Style --}}
@@ -14,13 +14,13 @@
 
         <div class="card">
             <div class="p-6">
-                <table id="categoryTable" class="display stripe text-xs sm:text-base" style="width:100%">
+                <table id="teammember" class="display stripe text-xs sm:text-base" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl</th>
                             <th>Name</th>
-                            <th>Slug</th>
-                            <th>Keywords</th>
+                            <th>Designation</th>
+                            <th>Employee Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,10 +36,10 @@
         <!-- Datatable script-->
         <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <script>
-            var datatablelist = $('#categoryTable').DataTable({
+            var datatablelist = $('#teammember').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{!! route('projects.index') !!}",
+                ajax: "{!! route('members.index') !!}",
                 columns: [{
                         "render": function(data, type, full, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;

@@ -67,13 +67,6 @@
 
         <ul class="menu" data-fc-type="accordion">
             <li class="menu-title">Navigation</li>
-
-            {{-- <li class="menu-item">
-                <a href="{{route('dashboard')}}" class="menu-link">
-                    <span class="menu-icon"><i class="mdi mdi-view-dashboard-outline"></i></span>
-                    <span class="menu-text"> Dashboard </span>
-                </a>
-            </li> --}}
             <li class="menu-item">
                 <a href="{{route('home')}}" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
@@ -211,8 +204,8 @@
 
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
-                    <span class="menu-icon"><i class="mdi mdi-account-multiple-plus-outline"></i></span>
-                    <span class="menu-text">Tearm Members </span>
+                    <span class="menu-icon"><i class="mdi mdi-human-greeting"></i></span>
+                    <span class="menu-text">Team Members </span>
                     <span class="menu-arrow"></span>
                 </a>
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 
@@ -11,9 +13,12 @@ class MemberController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            return Datatables::of(Member::query())->addIndexColumn()->make(true);
+        }
+        return view('admin.members.index');
     }
 
     /**
@@ -21,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.members.create');
     }
 
     /**
