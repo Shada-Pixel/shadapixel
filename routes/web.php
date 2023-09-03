@@ -6,6 +6,7 @@ use App\Http\Controllers\QueryController;
 use \App\Http\Controllers\Actions\FetchCategoryController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,12 +29,14 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/career', 'career')->name('career');
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/industries/{industry}', 'industries')->name('industries.show');
+    Route::get('/project_details/{project}', 'pdtails')->name('projects.details');
 });
 
 
 Route::resource('queries', QueryController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('projects', ProjectController::class);
+Route::resource('members', MemberController::class);
 
 
 

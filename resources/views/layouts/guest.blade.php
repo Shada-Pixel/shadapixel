@@ -33,11 +33,6 @@
 
 <body class="font-space text-nblue antialiased relative ">
 
-    {{-- Image pop --}}
-    @if (isset($imagepop))
-    {{ $imagepop }}
-    @endif
-
     {{-- Preeloder --}}
     <div class="w-screen h-screen bg-white fixed z-[11112] flex justify-center items-center" id="preeloader">
 

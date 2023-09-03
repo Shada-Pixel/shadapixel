@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('slug');
             $table->longtext('keywords');
             $table->longtext('tools');
+            $table->longtext('client')->nullable();
 
             // category
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
 
+            $table->dateTime('start_date')->nullable();
             $table->dateTime('delivery_date')->nullable();
             $table->longtext('description');
             $table->string('link')->nullable();

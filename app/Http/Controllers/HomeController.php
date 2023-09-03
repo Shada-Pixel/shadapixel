@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Category;
+use App\Models\Project;
 
 
 
@@ -57,6 +58,15 @@ class HomeController extends Controller
         $industry = Category::with('projects')->where('slug', $industry)->first();
         return view('works.index', [
             'industry' => $industry,
+        ]);
+    }
+
+    // Returning to project detsils page
+    public function pdtails($project)
+    {
+        $project = Project::with('category')->where('slug', $project)->first();
+        return view('works.show', [
+            'project' => $project,
         ]);
     }
 

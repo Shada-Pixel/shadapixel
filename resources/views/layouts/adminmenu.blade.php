@@ -212,6 +212,47 @@
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-account-multiple-plus-outline"></i></span>
+                    <span class="menu-text">Tearm Members </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('members.index')}}" class="menu-link">
+                            <span class="menu-text">ALL</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('members.create')}}" class="menu-link">
+                            <span class="menu-text">Add New</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth-recoverpw.html" class="menu-link">
+                            <span class="menu-text">Recover Password</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth-lock-screen.html" class="menu-link">
+                            <span class="menu-text">Lock Screen</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth-confirm-mail.html" class="menu-link">
+                            <span class="menu-text">Confirm Mail</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth-logout.html" class="menu-link">
+                            <span class="menu-text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <span class="menu-icon"><i class="mdi mdi-account-multiple-plus-outline"></i></span>
                     <span class="menu-text"> Auth Pages </span>
                     <span class="menu-arrow"></span>
                 </a>

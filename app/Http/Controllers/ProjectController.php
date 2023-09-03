@@ -43,9 +43,14 @@ class ProjectController extends Controller
         $project->keywords = $request->keywords;
         $project->tools = $request->tools;
         $project->category_id = $request->category_id;
+        $project->start_date = $request->start_date;
         $project->delivery_date = $request->delivery_date;
         $project->description = $request->description;
         $project->link = $request->link;
+
+        if ($request->client) {
+            $project->client = $request->client;
+        }
 
 
         // cover home
@@ -114,9 +119,14 @@ class ProjectController extends Controller
         $project->keywords = $request->keywords;
         $project->tools = $request->tools;
         $project->category_id = $request->category_id;
+        $project->start_date = $request->start_date;
         $project->delivery_date = $request->delivery_date;
         $project->description = $request->description;
         $project->link = $request->link;
+
+        if ($request->client) {
+            $project->client = $request->client;
+        }
 
 
         // cover home

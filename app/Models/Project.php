@@ -15,7 +15,9 @@ class Project extends Model
         'slug',
         'keywords',
         'tools',
+        'client',
         'category_id',
+        'start_date',
         'delivery_date',
         'description',
         'link',
@@ -26,7 +28,7 @@ class Project extends Model
     ];
 
 
-    
+
 
     public function category()
     {
