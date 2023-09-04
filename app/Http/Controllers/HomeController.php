@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Member;
 
 
 
@@ -16,7 +17,9 @@ class HomeController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('index');
+
+        $exicutives = Member::where('executive',1)->get();
+        return view('index',['exicutives' => $exicutives]);
     }
 
 
