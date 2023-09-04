@@ -13,4 +13,11 @@ class Member extends Model
     protected $fillable = ['name','slug','designation','photo','soocial_medias','email','website','skills','type','executive'];
 
 
+
+    protected $casts = [
+        'soocial_medias' => 'array',
+        'skills' => 'array'
+    ];
+
+
 }

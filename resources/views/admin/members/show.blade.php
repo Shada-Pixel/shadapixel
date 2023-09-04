@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">{{$project->name}}</x-slot>
+    <x-slot name="title">{{$member->name}}</x-slot>
 
 
     {{-- Header Style --}}
@@ -9,60 +9,70 @@
 
     {{-- Page Content --}}
     <div class="flex flex-col gap-6">
-
         <div class="card">
-            <div class="p-6">
-                <div class="flex justify-between items-center">
-                    <a href="{{route('projects.edit',$project->slug)}}">
-                        <button type="button" class="btn bg-seagreen text-white">Edit</button>
+            <div class="p-6 grid lg:grid-cols-2 gap-6">
+
+                <div class="">
+                    <img src="{{asset($member->photo)}}" alt="" srcset="" class="w-full">
+
+                </div>
+
+                <div class="">
+
+
+                    <h3 class="font-mont font-bold text-base sm:text-2xl">{{$member->name}}</h3>
+                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$member->designation}}</p>
+
+                    {{-- Skills --}}
+                    <div class="mt-12">
+                        <h2 class="text-xl font-semibold mb-4">Skills</h2>
+                        @forelse ($member->skills as $skill)
+                            @if ($skill['name'] != NULL)
+
+                            <div class="flex flex-flow py-2 px-4 border mb-2 items-center gap-5">
+                                <p class="uppercase basis-1/6">{{$skill['name']}}</p>
+                                <div class="flex w-full h-3 bg-gray-200  overflow-hidden dark:bg-gray-700">
+                                    <div class="flex flex-col justify-center overflow-hidden bg-seagreen" role="progressbar" style="width: {{$skill['exp']}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            @endif
+
+                        @empty
+                            <p>OPS!</p>
+                        @endforelse
+                    </div>
+
+
+                    {{-- Social medias --}}
+                    <div class="mt-4">
+                        <h2 class="text-xl font-semibold mb-4">Social Meadias</h2>
+                        @forelse ($member->soocial_medias as $sm)
+                            @if ($sm['name'] != NULL)
+
+                            <div class="flex flex-flow py-2 px-4 border mb-2 items-center gap-5">
+                                <p class="uppercase basis-1/6">{{$sm['name']}}</p>
+                                <div class="flex w-full overflow-hidden ">
+                                    <p>{{$sm['link']}}</p>
+                                </div>
+                            </div>
+                            @endif
+
+                        @empty
+                            <p>OPS!</p>
+                        @endforelse
+                    </div>
+
+                    <a href="{{route('members.edit',$member->slug)}}">
+
+                        <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['EDIT'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Edit</button>
                     </a>
-                    <span class="inline-flex items-center gap-1.5 py-0.5 rounded-full text-xs font-medium bg-info text-white px-2">{{$project->category->name}}</span>
-                </div>
-                <p class="text-lg font-medium mt-4">Keywords</p>
-                <p class="border rounded p-4 mt-4">{{$project->keywords}}</p>
-                <p class="mt-4 text-lg font-medium">Tools and technologies</p>
-                <p class="border rounded p-4 mt-4">{{$project->tools}}</p>
-                <p class="mt-4 text-lg font-medium">Description</p>
-                <p class="border rounded p-4 mt-4">{!!$project->description!!}</p>
-                <p class="mt-4 text-lg font-medium">Live preview link</p>
-                <p class="border rounded p-4 mt-4">{{$project->link}}</p>
 
-            </div>
-        </div> <!-- end card -->
-
-        <div class="card">
-            <div class="p-6">
-                <p class="text-lg font-medium">Images</p>
-                <div class="grid lg:grid-cols-3">
-
-                    @if ($project->cover_home)
-                    <div class="">
-                        <p>Home Page Cover</p>
-                        <img src="{{asset($project->cover_home)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
-
-                    @if ($project->cover_work)
-                    <div class="">
-                        <p>Work Page Cover</p>
-                        <img src="{{asset($project->cover_work)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
-
-                    @if ($project->cover_details)
-                    <div class="">
-                        <p>Details Page Cover</p>
-                        <img src="{{asset($project->cover_details)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
                 </div>
 
 
+
             </div>
-        </div> <!-- end card -->
-
-
-
+        </div>
     </div>
 
 

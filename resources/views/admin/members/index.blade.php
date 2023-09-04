@@ -16,7 +16,7 @@
             <div class="p-6">
                 <table id="teammember" class="display stripe text-xs sm:text-base" style="width:100%">
                     <thead>
-                        <tr>
+                        <tr class="">
                             <th>Sl</th>
                             <th>Name</th>
                             <th>Designation</th>
@@ -50,24 +50,35 @@
                         name: 'name'
                     },
                     {
-                        data: 'slug',
-                        name: 'slug'
+                        data: 'designation',
+                        name: 'designation'
                     },
                     {
-                        data: 'keywords',
-                        name: 'keywords'
+                        data: null,
+                        render: function(data) {
+
+                            if (data.type == 1) {
+                                return `<span class="inline-flex items-center gap-1.5 py-0.5 px-1.5 rounded-full text-xs font-medium border border-success text-success">Inhouse</span>`;
+                            }else if(data.type == 2){
+                                return `<span class="inline-flex items-center gap-1.5 py-0.5 px-1.5 rounded-full text-xs font-medium border border-success text-success">Freelance</span>`;
+                            }else{
+                                return `<span class="inline-flex items-center gap-1.5 py-0.5 px-1.5 rounded-full text-xs font-medium border border-success text-success">X Inhouse</span>`;
+                            }
+
+
+                        }
                     },
                     {
                         data: null,
                         render: function(data) {
                             return `<div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
-                                <a href="${BASE_URL}projects/${data.slug}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
+                                <a href="${BASE_URL}members/${data.slug}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
                                     <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
                                 </a>
-                                <a href="${BASE_URL}projects/${data.slug}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
+                                <a href="${BASE_URL}members/${data.slug}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
                                     <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
                                 </a>
-                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="projectDelete(${data.id});">
+                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="memberDelete(${data.id});">
                                     <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                                     </button>
                                 </div>`;
@@ -77,7 +88,7 @@
             });
 
 
-            function projectDelete(slug) {
+            function memberDelete(id) {
 
 
                 Swal.fire({
@@ -95,7 +106,7 @@
                     if (result.value) {
                         $.ajax({
                             method: 'DELETE',
-                            url: BASE_URL + 'projects/' + slug,
+                            url: BASE_URL + 'members/' + id,
                             success: function(response) {
                                 if (response.status == "success") {
                                     Swal.fire('Success!', response.message, 'success');
