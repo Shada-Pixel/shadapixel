@@ -83,7 +83,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->route('projects.index')->with(['status'=> 200, 'message' => 'Project created successfully!']);
+        
     }
 
     /**

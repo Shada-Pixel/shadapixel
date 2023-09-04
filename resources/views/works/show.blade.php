@@ -17,24 +17,32 @@
                 <img src="{{ asset($project->cover_details) }}" alt="" srcset="" class="w-full">
             </div>
             <div class="">
-                <p class="mb-4"><span class="text-seagreen">Project Title:</span> <a href="tel:+8801928292567"> {{$project->name}}</a></p>
+                <p class="mb-4"><span class="text-seagreen">Project Title:</span> <a href="tel:+8801928292567">
+                        {{ $project->name }}</a></p>
                 @if ($project->client)
-                <p class="mb-4"><span class="text-seagreen">Client:</span> {{$project->client}}</p>
+                    <p class="mb-4"><span class="text-seagreen">Client:</span> {{ $project->client }}</p>
                 @endif
-                <p class="mb-4"><span class="text-seagreen">Star Date:</span> {{ date('M d, Y', strtotime($project->start_date)) }}</p>
-                <p class="mb-4"><span class="text-seagreen">End Date:</span> {{ date('M d, Y', strtotime($project->delivery_date)) }}</p>
-                <p class="mb-4"><span class="text-seagreen">Category:</span> {{$project->category->name}}</p>
-                <p class="mb-10"><span class="text-seagreen">Overview:</span> {!!$project->description!!}</p>
+                <p class="mb-4"><span class="text-seagreen">Star Date:</span>
+                    {{ date('M d, Y', strtotime($project->start_date)) }}</p>
+                <p class="mb-4"><span class="text-seagreen">End Date:</span>
+                    {{ date('M d, Y', strtotime($project->delivery_date)) }}</p>
+                <p class="mb-4"><span class="text-seagreen">Category:</span> {{ $project->category->name }}</p>
+                <p class="mb-10"><span class="text-seagreen">Overview:</span> {!! $project->description !!}</p>
                 <div class="mb-10">
 
                     <p class="mb-4 text-seagreen">Team: </p>
                     <div class="flex gap-2">
-                        <div class="p-1 w-12 h-12 rounded-full"
-                            style="background-image: url({{ asset($project->cover_work) }})"></div>
-                        <div class="p-1 w-12 h-12 rounded-full"
-                            style="background-image: url({{ asset($project->cover_work) }})"></div>
-                        <div class="p-1 w-12 h-12 rounded-full"
-                            style="background-image: url({{ asset($project->cover_work) }})"></div>
+
+                        {{-- Each Member --}}
+                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member one">
+
+                        </div>
+
+                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member two">
+                        </div>
+
+                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member three">
+                        </div>
                     </div>
                 </div>
                 <div class="mb-10">
@@ -55,10 +63,35 @@
                 @endif
             </div>
         </div>
+
+
     </section>
 
 
     <x-slot name="script">
-        <script></script>
+        <script>
+            $(document).ready(function() {
+
+                // Cache the elements for better performance
+                var $colaborators = $('.eachColaborator');
+                var $tooltips = $('#mousetooltips');
+
+                $colaborators.on('mousemove', function(e) {
+                    var data = $(this).data('member');
+                    var x = e.pageX + 10;
+                    var y = e.pageY + 10;
+
+                    // Update tooltip text and position
+                    $tooltips.text(data).css({ top: y + 'px', left: x + 'px' }).show();
+                });
+
+                $colaborators.mouseleave(function () {
+                    // Clear tooltip text and hide it
+                    $tooltips.text('').hide();
+                });
+
+
+            });
+        </script>
     </x-slot>
 </x-guest-layout>

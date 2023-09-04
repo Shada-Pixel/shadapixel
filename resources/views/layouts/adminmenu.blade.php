@@ -115,6 +115,11 @@
                             <span class="menu-text">Add New</span>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{route('projectmembers.create','something')}}" class="menu-link">
+                            <span class="menu-text">Member</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

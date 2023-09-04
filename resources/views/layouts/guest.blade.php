@@ -54,6 +54,8 @@
 
         </div>
     </div>
+
+    <div id="mousetooltips" class=" whitespace-nowrap absolute left-1/5 top-1/5 bg-seagreen px-2 text-white text-sm hidden transition duration-150 ease-in-out"></div>
     {{-- scroll Progress --}}
     <progress class="w-full h-1 fixed bottom-0 z-[1111] p-0 bg-transparent text-seagreen transition-all duration-75 ease-in-out"
         aria-hidden="true" max="100" value="0" id="scrollprogress"></progress>

@@ -7,6 +7,7 @@ use \App\Http\Controllers\Actions\FetchCategoryController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProjectMemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::resource('queries', QueryController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('members', MemberController::class);
+Route::resource('projectmembers', ProjectMemberController::class);
 
 
 
