@@ -67,7 +67,7 @@ class HomeController extends Controller
     // Returning to project detsils page
     public function pdtails($project)
     {
-        $project = Project::with('category')->where('slug', $project)->first();
+        $project = Project::with('category','members')->where('slug', $project)->first();
         return view('works.show', [
             'project' => $project,
         ]);

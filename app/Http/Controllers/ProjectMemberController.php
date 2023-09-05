@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Member;
+use Illuminate\Http\Request;
 use App\Models\ProjectMember;
 use App\Http\Requests\StoreProjectMemberRequest;
 use App\Http\Requests\UpdateProjectMemberRequest;
@@ -88,8 +89,16 @@ class ProjectMemberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProjectMember $projectMember)
+    public function destroy(Request $request)
     {
-        //
+        $projectmember = ProjectMember::where('project_id', $request->project_id)->where('member_id', $request->member_id)->first();
+        $detach = $projectmember->delete();
+
+        if ($detach) {
+            return response()->json(['success'=> 'Member Detuched from this Project.']);
+        } else {
+            return response()->json(['error'=>"Ops! Didnt detuch the member."]);
+        }
+
     }
 }

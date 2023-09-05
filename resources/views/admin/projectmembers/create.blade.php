@@ -41,7 +41,7 @@
                     <div class="mt-4" id="pmembershow">
 
                         @foreach ($project->members as $member)
-                            <div class="eachProjectMember" id="epm{{$member->id}}">
+                            <div class="eachProjectMember" id="epm{{ $member->id }}">
                                 <div class="flex items-center justify-between gap-2">
                                     <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
                                         <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat"
@@ -51,8 +51,8 @@
                                             <p>{{ $member->designation }}</p>
                                         </div>
                                     </div>
-                                    <div
-                                        class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletethis({{ $member->id }})" >
+                                    <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto"
+                                        onclick="deletethis({{ $member->id }})">
                                         <span class="mdi mdi-close"></span>
                                     </div>
                                 </div>
@@ -144,11 +144,11 @@
                         let srd = $("#searchresult");
                         if (response.error) {
                             $("#ajaxflash div p").text(response.error);
-                            $("#ajaxflash").fadeIn().fadeOut(3000);
+                            $("#ajaxflash").fadeIn().fadeOut(5000);
                             srd.html('').fadeOut(150);
                         } else {
                             $("#ajaxflash div p").text(response.success);
-                            $("#ajaxflash").fadeIn().fadeOut(3000);
+                            $("#ajaxflash").fadeIn().fadeOut(5000);
                             var appendble = `<div class="eachProjectMember " id="epm${response.data.id}">
                                     <div class="flex items-center justify-between gap-2">
                                         <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
@@ -174,47 +174,37 @@
 
             // Remove member from
             function deletethis(memberid) {
-                console.log($("#epm"+memberid));
 
-                // $.ajax({
-                //     url: BASE_URL + 'projectmembers/store',
-                //     dataType: 'json',
-                //     data: {
-                //         project_id: pid,
-                //         member_id: memberid,
-                //     },
-                //     type: 'POST',
-                //     success: function(response) {
-                //         let memshow = $("#pmembershow");
-                //         let srd = $("#searchresult");
-                //         if (response.error) {
-                //             $("#ajaxflash div p").text(response.error);
-                //             $("#ajaxflash").fadeIn().fadeOut(3000);
-                //             srd.html('').fadeOut(150);
-                //         } else {
-                //             $("#ajaxflash div p").text(response.success);
-                //             $("#ajaxflash").fadeIn().fadeOut(3000);
-                //             var appendble = `<div class="eachProjectMember ">
-                //                     <div class="flex items-center justify-between gap-2">
-                //                         <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
-                //                             <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat" style="background-image: url('${ BASE_URL+response.data.photo }')"></div>
-                //                             <div class="">
-                //                                 <h3 class="text-lg font-semibold">${response.data.name}</h3>
-                //                                 <p>${response.data.designation}</p>
-                //                             </div>
-                //                         </div>
-                //                         <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletemyparent(${response.data.id})">
-                //                             <span class="mdi mdi-close"></span>
-                //                         </div>
-                //                     </div>
-                //                 </div>`;
-                //             memshow.append(appendble);
-                //             srd.html('').fadeOut(150);
-                //         }
+                let removeable = $("#epm"+memberid);
 
-                //     },
-                // });
+                $.ajax({
+                    url: BASE_URL + 'projectmembers/delete/'+pid,
+                    dataType: 'json',
+                    data: {
+                        project_id: pid,
+                        member_id: memberid,
+                    },
+                    type: 'DELETE',
+                    success: function(response) {
+                        let memshow = $("#pmembershow");
+                        let srd = $("#searchresult");
+                        if (response.error) {
+                            $("#ajaxflash div p").text(response.error);
+                            $("#ajaxflash").fadeIn().fadeOut(5000);
+                            srd.html('').fadeOut(150);
+                        } else {
+
+                            removeable.remove();
+                            $("#ajaxflash div p").text(response.success);
+                            $("#ajaxflash").fadeIn().fadeOut(5000);
+                        }
+
+                    },
+                });
             }
         </script>
+
+
+
     </x-slot>
 </x-admin-layout>

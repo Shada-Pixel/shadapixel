@@ -28,23 +28,21 @@
                     {{ date('M d, Y', strtotime($project->delivery_date)) }}</p>
                 <p class="mb-4"><span class="text-seagreen">Category:</span> {{ $project->category->name }}</p>
                 <p class="mb-10"><span class="text-seagreen">Overview:</span> {!! $project->description !!}</p>
-                <div class="mb-10">
 
+                @if ($project->members)
+                <div class="mb-10">
                     <p class="mb-4 text-seagreen">Team: </p>
                     <div class="flex gap-2">
-
+                        @forelse ($project->members as $member)
                         {{-- Each Member --}}
-                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member one">
-
-                        </div>
-
-                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member two">
-                        </div>
-
-                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group" style="background-image: url({{ asset($project->cover_work) }})" data-member="Member three">
-                        </div>
+                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset($member->photo) }})" data-member="{{$member->name}}"> </div>
+                        @empty
+                        <div class=""></div>
+                        @endforelse
                     </div>
                 </div>
+                @endif
+
                 <div class="mb-10">
 
                     <p class="mb-4 text-seagreen">Technology: </p>

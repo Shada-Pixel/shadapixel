@@ -45,7 +45,7 @@ Route::group(['prefix' => 'projectmembers'], function () {
     Route::get('/create/{project}', [ProjectMemberController::class,  'create'])->name('projectmembers.create');
     Route::get('/search/{query}', [ProjectMemberController::class,  'search'])->name('projectmembers.search');
     Route::post('/store', [ProjectMemberController::class,  'store'])->name('projectmembers.store');
-    // Route::delete('/delete/{cart}', [ProjectMemberController::class,  'destroy'])->name('projectmembers.destroy');
+    Route::delete('/delete/{project}', [ProjectMemberController::class,  'destroy'])->name('projectmembers.destroy');
 });
 
 
