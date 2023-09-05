@@ -1,58 +1,67 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">Add Project Member</x-slot>
+    <x-slot name="title">Add Member to {{ $project->name }} Projects</x-slot>
 
 
     {{-- Header Style --}}
     <x-slot name="headerstyle">
-        <link href="{{ asset('admindash/asset/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
     </x-slot>
 
     {{-- Page Content --}}
     <div class="flex flex-col gap-6">
 
         <div class="card">
-            <div class="p-6">
+            <div class="p-6 flex flex-flow gap-5">
+                <div class="basis-2/5">
+                    @if ($project->cover_home)
+                        <div class="">
+                            <h1 class="text-2xl mb-4 font-bold">{{ $project->name }}</h1>
+                            <input type="hidden" value="{{ $project->id }}" id="projectid">
+                            <img src="{{ asset($project->cover_home) }}" alt="" srcset="" class="w-full">
+                        </div>
+                    @endif
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl mb-4 font-bold">Project Members</h2>
+                    <div class="relative w-full">
+                        <form action="" id="membersearchform">
+                            <input type="text" name="" id="membersearchinput" class="w-full form-input"
+                                placeholder="Search member to add in this project">
+                        </form>
 
-                <form action="{{ route('projectmembers.store') }}" method="post">
-                    <div class="grid lg:grid-cols-2 gap-5">
-                        @csrf
-                        @method('post')
+                        <div class="bg-white/70 backdrop-blur-sm  shadow-md absolute top-full w-full" id="searchresult">
+                            {{-- each result --}}
 
-                        <div>
-                            <label for="project_id" class="block mb-2">Project</label>
-                            <select class="form-select" id="project_id" name="project_id" required>
-                                <option selected="" disabled value="">Choose...</option>
-                                @foreach ($projects as $project)
-                                    <option value="{{ $project->id }}" class="iconify" data-icon='facebook'>
-                                        {{ $project->name }}</option>
-                                @endforeach
-                            </select>
-                        </div> <!-- end -->
-
-                        <div>
-                            <label for="member_id" class="block mb-2">Member</label>
-                            <select class="form-select" id="member_id" required data-toggle="select2"
-                                name="member_id[]" multiple="multiple">
-                                @foreach ($members as $member)
-                                    <option value="{{ $member->id }}">{{ $member->name }}</option>
-                                @endforeach
-                            </select>
-                        </div> <!-- end -->
+                        </div>
+                    </div>
 
 
+                    <div class="form">
+                    </div>
+                    <div class="mt-4" id="pmembershow">
 
-
-
-
-                        <div class="lg:col-span-2 mt-3">
-                            <button type="submit"
-                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SAVE'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Save</button>
-                        </div> <!-- end button -->
-
+                        @foreach ($project->members as $member)
+                            <div class="eachProjectMember" id="epm{{$member->id}}">
+                                <div class="flex items-center justify-between gap-2">
+                                    <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
+                                        <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat"
+                                            style="background-image: url({{ asset($member->photo) }})"></div>
+                                        <div class="">
+                                            <h3 class="text-lg font-semibold">{{ $member->name }}</h3>
+                                            <p>{{ $member->designation }}</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletethis({{ $member->id }})" >
+                                        <span class="mdi mdi-close"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 
                     </div>
-                </form>
+                </div>
+
 
             </div>
         </div> <!-- end card -->
@@ -63,19 +72,149 @@
 
 
     <x-slot name="script">
-        <script src="{{ asset('admindash/asset/libs/select2/js/select2.min.js') }}"></script>
         <script>
             $(document).ready(function() {
-                $("form #name").on('blur', () => {
-                    const slug = slugify($("form #name").val());
-                    $("form #slug").val(slug);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-Token': $('meta[name=_token]').attr('content')
+                    }
                 });
 
-                $("#project_id").select2({
-                    placeholder: "Select members on this project",
-                    allowClear: true
+                let searchurl = 'projectmembers/search/';
+                // Searching member
+                $("form #membersearchinput").on('keyup', () => {
+                    var query = $("#membersearchinput").val();
+                    var srd = $("#searchresult");
+                    if (query == '') {
+                        srd.css('display', 'none');
+                    } else {
+                        srd.css('display', 'block');
+                    }
+                    $.ajax({
+                        url: BASE_URL + searchurl + query,
+                        dataType: 'json',
+                        type: 'GET',
+                        error: function() {
+                            console.log(Error);
+                        },
+                        success: function(response) {
+
+                            srd.html('');
+                            srd.toggleClass('p-2');
+                            response.data.forEach((item) => {
+                                var appendble = `<div class="eachProjectMember ">
+                                <div class="flex items-center justify-between gap-2">
+                                    <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
+                                        <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat" style="background-image: url('${ BASE_URL+item.photo }')"></div>
+                                        <div class="">
+                                            <h3 class="text-lg font-semibold">${item.name}</h3>
+                                            <p>${item.designation}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="addtoproject(${item.id})">
+                                        <span class="mdi mdi-plus"></span>
+                                    </div>
+                                </div>
+                            </div>`;
+                                srd.append(appendble);
+                            })
+
+                        },
+                    });
                 });
+
+
             });
+
+            // Project ID
+            var pid = $("#projectid").val();
+
+            // Add member to project finction
+            function addtoproject(memberid) {
+                $.ajax({
+                    url: BASE_URL + 'projectmembers/store',
+                    dataType: 'json',
+                    data: {
+                        project_id: pid,
+                        member_id: memberid,
+                    },
+                    type: 'POST',
+                    success: function(response) {
+                        let memshow = $("#pmembershow");
+                        let srd = $("#searchresult");
+                        if (response.error) {
+                            $("#ajaxflash div p").text(response.error);
+                            $("#ajaxflash").fadeIn().fadeOut(3000);
+                            srd.html('').fadeOut(150);
+                        } else {
+                            $("#ajaxflash div p").text(response.success);
+                            $("#ajaxflash").fadeIn().fadeOut(3000);
+                            var appendble = `<div class="eachProjectMember " id="epm${response.data.id}">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
+                                            <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat" style="background-image: url('${ BASE_URL+response.data.photo }')"></div>
+                                            <div class="">
+                                                <h3 class="text-lg font-semibold">${response.data.name}</h3>
+                                                <p>${response.data.designation}</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletethis(${response.data.id})">
+                                            <span class="mdi mdi-close"></span>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            memshow.append(appendble);
+                            srd.html('').fadeOut(150);
+                        }
+
+                    },
+                });
+            }
+
+
+            // Remove member from
+            function deletethis(memberid) {
+                console.log($("#epm"+memberid));
+
+                // $.ajax({
+                //     url: BASE_URL + 'projectmembers/store',
+                //     dataType: 'json',
+                //     data: {
+                //         project_id: pid,
+                //         member_id: memberid,
+                //     },
+                //     type: 'POST',
+                //     success: function(response) {
+                //         let memshow = $("#pmembershow");
+                //         let srd = $("#searchresult");
+                //         if (response.error) {
+                //             $("#ajaxflash div p").text(response.error);
+                //             $("#ajaxflash").fadeIn().fadeOut(3000);
+                //             srd.html('').fadeOut(150);
+                //         } else {
+                //             $("#ajaxflash div p").text(response.success);
+                //             $("#ajaxflash").fadeIn().fadeOut(3000);
+                //             var appendble = `<div class="eachProjectMember ">
+                //                     <div class="flex items-center justify-between gap-2">
+                //                         <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
+                //                             <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat" style="background-image: url('${ BASE_URL+response.data.photo }')"></div>
+                //                             <div class="">
+                //                                 <h3 class="text-lg font-semibold">${response.data.name}</h3>
+                //                                 <p>${response.data.designation}</p>
+                //                             </div>
+                //                         </div>
+                //                         <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletemyparent(${response.data.id})">
+                //                             <span class="mdi mdi-close"></span>
+                //                         </div>
+                //                     </div>
+                //                 </div>`;
+                //             memshow.append(appendble);
+                //             srd.html('').fadeOut(150);
+                //         }
+
+                //     },
+                // });
+            }
         </script>
     </x-slot>
 </x-admin-layout>

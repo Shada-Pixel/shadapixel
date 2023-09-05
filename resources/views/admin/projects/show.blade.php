@@ -13,10 +13,17 @@
         <div class="card">
             <div class="p-6">
                 <div class="flex justify-between items-center">
-                    <a href="{{route('projects.edit',$project->slug)}}">
-                        <button type="button" class="btn bg-seagreen text-white">Edit</button>
-                    </a>
-                    <span class="inline-flex items-center gap-1.5 py-0.5 rounded-full text-xs font-medium bg-info text-white px-2">{{$project->category->name}}</span>
+                    <span class="inline-flex items-center gap-1.5 py-0.5 text-xs font-medium bg-seagreen text-white px-2">#{{$project->category->name}}</span>
+
+                    <div class="flex gap-4">
+
+                        <a href="{{route('projectmembers.create',$project->slug)}}">
+                            <button type="button" class="btn border-seagreen text-seagreen hover:bg-seagreen hover:text-white">Manage Member</button>
+                        </a>
+                        <a href="{{route('projects.edit',$project->slug)}}">
+                            <button type="button" class="btn bg-seagreen text-white">Edit</button>
+                        </a>
+                    </div>
                 </div>
                 <p class="text-lg font-medium mt-4">Keywords</p>
                 <p class="border rounded p-4 mt-4">{{$project->keywords}}</p>

@@ -18,14 +18,25 @@ class ProjectMemberController extends Controller
         //
     }
 
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function search($query)
+    {
+        $members = Member::where('name', 'LIKE', '%'.$query.'%')->get();
+        return response()->json(['data'=> $members], 200);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($slug)
     {
-        $projects = Project::select('id', 'name', 'cover_home')->get();
-        $members = Member::select('id', 'name', 'photo')->get();
-        return view('admin.projectmembers.create',['projects' => $projects, 'members' => $members]);
+        $project = Project::with('members')->where('slug', $slug)->first();
+        $members = Member::select('id', 'name', 'photo','designation')->get();
+        return view('admin.projectmembers.create',['project' => $project, 'members' => $members]);
     }
 
     /**
@@ -33,15 +44,21 @@ class ProjectMemberController extends Controller
      */
     public function store(StoreProjectMemberRequest $request)
     {
-
-        foreach ($request->member_id as $mi) {
+        $existing = ProjectMember::where('project_id', $request->project_id)->where('member_id', $request->member_id)->get();
+        if ($existing->count() <= 0) {
+            # code...
             $projectMember = ProjectMember::create([
                 'project_id' => $request->project_id,
-                'member_id' => $mi
+                'member_id' => $request->member_id
             ]) ;
+
+            $member = Member::find($request->member_id);
+
+            $msg = 'Member added to the project.';
+            return response()->json(['success'=> $msg,'data' =>$member]);
         }
 
-        return redirect()->route('projects.show',$request->project->slug)->with(['status' => 200, 'message' => 'Member added!']);
+        return response()->json(['error'=>"Member already added!"]);
     }
 
     /**

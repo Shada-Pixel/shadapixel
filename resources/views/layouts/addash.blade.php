@@ -62,7 +62,15 @@
             <!-- Topbar End -->
 
             <main class="p-6 relative">
+                {{-- for php flash --}}
                 <x-auth-session-status :status="Session::get('message')" id="notificationflush" onclick="hideflash()"></x-auth-session-status>
+                {{-- for ajax flash --}}
+                <div class="bg-seagreen/40 backdrop-blur-sm px-4 py-2 font-medium text-sm text-white absolute top-4 right-6 z-[11111] hover:bg-seagreen hidden" id="ajaxflash">
+                    <div class="flex gap-4">
+                        <p></p>
+                        <span class="menu-icon"><i class="mdi mdi-close"></i></span>
+                    </div>
+                </div>
                 {{ $slot }}
             </main>
 

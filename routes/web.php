@@ -40,6 +40,13 @@ Route::resource('projects', ProjectController::class);
 Route::resource('members', MemberController::class);
 Route::resource('projectmembers', ProjectMemberController::class);
 
+Route::group(['prefix' => 'projectmembers'], function () {
+    Route::get('/', [ProjectMemberController::class,  'index'])->name('projectmembers.index');
+    Route::get('/create/{project}', [ProjectMemberController::class,  'create'])->name('projectmembers.create');
+    Route::get('/search/{query}', [ProjectMemberController::class,  'search'])->name('projectmembers.search');
+    Route::post('/store', [ProjectMemberController::class,  'store'])->name('projectmembers.store');
+    // Route::delete('/delete/{cart}', [ProjectMemberController::class,  'destroy'])->name('projectmembers.destroy');
+});
 
 
 Route::middleware('auth')->group(function () {

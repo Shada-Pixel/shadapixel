@@ -34,4 +34,10 @@ class Project extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+
+    public function members()
+    {
+        return $this->belongsToMany(Member::class, ProjectMember::class);
+    }
 }
