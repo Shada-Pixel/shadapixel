@@ -166,6 +166,31 @@
 
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <span class="menu-icon"><i class="mdi mdi-account-lock-open-outline"></i></span>
+                    <span class="menu-text"> Role & Permission </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('roles.index')}}" class="menu-link">
+                            <span class="menu-text">All Role</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('roles.create')}}" class="menu-link">
+                            <span class="menu-text">New Role</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('permissions.index')}}" class="menu-link">
+                            <span class="menu-text">Permissions</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-shield-outline"></i></span>
                     <span class="menu-text"> Icons </span>
                     <span class="menu-arrow"></span>

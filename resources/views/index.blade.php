@@ -7,7 +7,9 @@
                 <p class="font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Design</p>
                 <h1 class="font-mont font-bold text-4xl sm:text-7xl">Visionary ideas<br>
                     for the future</h1>
-                <x-primary-buttonw>View all projects</x-primary-buttonw>
+                    <a href="{{route('home')}}">
+                        <x-primary-buttonw>View all works</x-primary-buttonw>
+                    </a>
             </div>
         </div>
     </div>
@@ -376,7 +378,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
             </div>
         </div>
     </div>
