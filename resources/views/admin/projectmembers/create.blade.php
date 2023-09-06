@@ -100,7 +100,7 @@
                         success: function(response) {
 
                             srd.html('');
-                            srd.toggleClass('p-2');
+                            srd.addClass('p-2');
                             response.data.forEach((item) => {
                                 var appendble = `<div class="eachProjectMember ">
                                 <div class="flex items-center justify-between gap-2">
@@ -165,6 +165,7 @@
                                 </div>`;
                             memshow.append(appendble);
                             srd.html('').fadeOut(150);
+                            $("form#membersearchform").trigger("reset");
                         }
 
                     },

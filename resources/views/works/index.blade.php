@@ -51,7 +51,9 @@
                     </div>
                 </div>
             @empty
-
+                <div class="py-20 flex justify-center items-center sm:col-span-4">
+                    <h2 class="text-center font-bold font-mont text-4xl">We are working right now <span class="text-seagreen">....</span></h2>
+                </div>
             @endforelse
 
 
