@@ -74,11 +74,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-Token': $('meta[name=_token]').attr('content')
-                    }
-                });
+                
 
                 let searchurl = 'projectmembers/search/';
                 // Searching member

@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">Projects</x-slot>
+    <x-slot name="title">Roles</x-slot>
 
 
     {{-- Header Style --}}
@@ -14,13 +14,12 @@
 
         <div class="card">
             <div class="p-6">
-                <table id="categoryTable" class="display stripe text-xs sm:text-base" style="width:100%">
+                <table id="rolesTable" class="display stripe text-xs sm:text-base" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl</th>
                             <th>Name</th>
-                            <th>Slug</th>
-                            <th>Keywords</th>
+                            <th>Guard</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,38 +35,36 @@
         <!-- Datatable script-->
         <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <script>
-            var datatablelist = $('#categoryTable').DataTable({
+            var datatablelist = $('#rolesTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{!! route('projects.index') !!}",
+                ajax: "{!! route('roles.index') !!}",
                 columns: [{
                         "render": function(data, type, full, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: null,
+                        render: function (data) {
+                            return `<p class="uppercase">${data.name}</p>`;
+                          }
                     },
                     {
-                        data: 'slug',
-                        name: 'slug'
-                    },
-                    {
-                        data: 'keywords',
-                        name: 'keywords'
+                        data: 'guard_name',
+                        name: 'guard_name'
                     },
                     {
                         data: null,
                         render: function(data) {
                             return `<div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
-                                <a href="${BASE_URL}projects/${data.slug}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
+                                <a href="${BASE_URL}roles/${data.id}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
                                     <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
                                 </a>
-                                <a href="${BASE_URL}projects/${data.slug}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
+                                <a href="${BASE_URL}roles/${data.id}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
                                     <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
                                 </a>
-                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="projectDelete(${data.id});">
+                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="roleDelete(${data.id});">
                                     <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                                     </button>
                                 </div>`;
@@ -77,12 +74,12 @@
             });
 
 
-            function projectDelete(slug) {
+            function roleDelete(roleID) {
 
 
                 Swal.fire({
                     title: "Delete ?",
-                    text: "Are you sure to delete this Project ?",
+                    text: "Are you sure to delete this Role ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -95,13 +92,14 @@
                     if (result.value) {
                         $.ajax({
                             method: 'DELETE',
-                            url: BASE_URL + 'projects/' + slug,
+                            url: BASE_URL + 'roles/' + roleID,
                             success: function(response) {
-                                if (response.status == "success") {
-                                    Swal.fire('Success!', response.message, 'success');
+                                if (response.success) {
+                                    $("#ajaxflash div p").text(response.success);
+                                    $("#ajaxflash").fadeIn().fadeOut(5000);
                                     datatablelist.draw();
-                                } else if (response.status == "error") {
-                                    Swal.fire('Not deletable!', response.message, 'error');
+                                } else {
+                                    Swal.fire('Not deletable!', 'This role is assigned to a user.', 'error');
                                     datatablelist.draw();
                                 }
                             }

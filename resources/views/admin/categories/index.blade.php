@@ -60,11 +60,14 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex flex-col sm:flex-row gap-1">
-                                <a href="${BASE_URL}categories/${data.slug}/edit" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" >
+                            return `<div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
+                                <a href="${BASE_URL}categories/${data.slug}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
+                                    <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
+                                </a>
+                                <a href="${BASE_URL}categories/${data.slug}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
                                     <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
                                 </a>
-                                <button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="categoryDelete(${data.id});">
+                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="categoryDelete(${data.id});">
                                     <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                                     </button>
                                 </div>`;
@@ -74,26 +77,34 @@
             });
 
 
-            function categoryDelete(categoryID) {
+                        // Deleting Permission
+            function categoryDelete(catID) {
                 Swal.fire({
                     title: "Delete ?",
-                    text: "Are you sure to delete this category ?",
+                    text: "Are you sure to delete this Category ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: "Delete",
+                    background: 'rgba(255, 255, 255, 0.6)',
+                    padding: '20px',
+                    confirmButtonColor: '#0db8a6',
                 }).then((result) => {
                     if (result.value) {
                         $.ajax({
                             method: 'DELETE',
-                            url: BASE_URL + 'categories/' + categoryID,
+                            url: BASE_URL + 'categories/' + catID,
                             success: function(response) {
-                                if (response.status == "success") {
-                                    Swal.fire('Success!', response.message, 'success');
+                                if (response.success) {
+                                    // Swal.fire('Success!', response.message, 'success');
+
+                                    $("#ajaxflash div p").text(response.success);
+                                    $("#ajaxflash").fadeIn().fadeOut(5000);
+
                                     datatablelist.draw();
-                                } else if (response.status == "error") {
-                                    Swal.fire('Not deletable!', response.message, 'error');
+                                } else {
+                                    Swal.fire('Not deletable!', 'This category is connected somewhere.', 'error');
                                     datatablelist.draw();
                                 }
                             }

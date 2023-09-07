@@ -14,12 +14,15 @@
         <div class="card">
             <div class="p-6">
                 <h2 class="mb-4 text-xl">New Permission</h2>
-                <form  id="permissionCreateForm">
+
+                <form class="" id="permissionCreateForm">
+
                     <div class="grid lg:grid-cols-2 gap-5">
 
                         <div>
                             <label for="name" class="block mb-2">Permission Name</label>
-                            <input type="text" class="form-input" id="name" name="name"  placeholder="model-permission">
+                            <input type="text" class="form-input" id="name" name="name"
+                                placeholder="model-permission">
                         </div> <!-- end -->
 
                         <div>
@@ -31,7 +34,8 @@
                         </div> <!-- end -->
 
                         <div class="lg:col-span-2 ">
-                            <button class="font-mont mt-2 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SURE!'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300" id="permissionSaveBtn">Save</button>
+                            <button type="submit" class="font-mont mt-2 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SURE!'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300"
+                                id="permissionSaveBtn">Save</button>
                         </div>
                     </div>
                 </form>
@@ -61,6 +65,11 @@
         <!-- Datatable script-->
         <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name=_token]').attr('content')
+                }
+            });
             var datatablelist = $('#permissionsTable').DataTable({
                 processing: true,
                 serverSide: true,
@@ -82,13 +91,7 @@
                         data: null,
                         render: function(data) {
                             return `<div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
-                                <a href="${BASE_URL}permissions/${data.id}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
-                                    <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
-                                </a>
-                                <a href="${BASE_URL}permissions/${data.id}/edit" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
-                                    <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
-                                </a>
-                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="projectDelete(${data.id});">
+                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="permissionDelete(${data.id});">
                                     <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                                     </button>
                                 </div>`;
@@ -97,13 +100,11 @@
                 ]
             });
 
-
-            function projectDelete(slug) {
-
-
+            // Deleting Permission
+            function permissionDelete(slug) {
                 Swal.fire({
                     title: "Delete ?",
-                    text: "Are you sure to delete this Project ?",
+                    text: "Are you sure to delete this Permission ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -116,13 +117,17 @@
                     if (result.value) {
                         $.ajax({
                             method: 'DELETE',
-                            url: BASE_URL + 'projects/' + slug,
+                            url: BASE_URL + 'permissions/' + slug,
                             success: function(response) {
-                                if (response.status == "success") {
-                                    Swal.fire('Success!', response.message, 'success');
+                                if (response.success) {
+                                    // Swal.fire('Success!', response.message, 'success');
+
+                                    $("#ajaxflash div p").text(response.success);
+                                    $("#ajaxflash").fadeIn().fadeOut(5000);
+
                                     datatablelist.draw();
-                                } else if (response.status == "error") {
-                                    Swal.fire('Not deletable!', response.message, 'error');
+                                } else {
+                                    Swal.fire('Not deletable!', 'This permission is connected to a role.', 'error');
                                     datatablelist.draw();
                                 }
                             }
@@ -132,73 +137,43 @@
             }
 
 
-
             // Add New Permission
-
-            $("#permissionSaveBtn").click(function (e) {
+            $("form#permissionCreateForm").submit(function(e) {
                 e.preventDefault();
 
-                var empty = true;
-                $("#permissionCreateForm input[id="name"]").each(function() {
-                    if ($(this).val() == "") {
-                        $("#ajaxflash div p").text('Name fild is required.');
-                        $("#ajaxflash").fadeIn().fadeOut(5000);
-                        $(this).focus();
-                    }
-                });
+                let name = $("#permissionCreateForm #name");
 
-                // let name = $("#permissionCreateForm #name").val();
-                // let gurd = $("#permissionCreateForm #guard").val();
+                if (name.val() != "") {
+                    let nameValue = name.val();
+                    let gurdname = $("#permissionCreateForm #guard").val();
+                    $.ajax({
+                        url: BASE_URL + 'permissions',
+                        dataType: 'json',
+                        data: {
+                            name: nameValue,
+                            guard_name: gurdname,
+                        },
+                        type: 'POST',
+                        success: function(response) {
+                            if (response.error) {
+                                $("#ajaxflash div p").text(response.error);
+                                $("#ajaxflash").fadeIn().fadeOut(5000);
+                            } else {
+                                $("#ajaxflash div p").text(response.success);
+                                $("#ajaxflash").fadeIn().fadeOut(5000);
+                                datatablelist.draw();
+                                name.focus().val("");
+                            }
 
-                // if (name == '') {
-                //     $("#ajaxflash div p").text('Name fild is required.');
-                //     $("#ajaxflash").fadeIn().fadeOut(5000);
-                // } else {
+                        },
+                    });
 
-                // }
-                // alert(name);
+                } else {
+                    $("#ajaxflash div p").text('Name fild is required.');
+                    $("#ajaxflash").fadeIn().fadeOut(5000);
+                    name.focus();
+                }
             });
-            function addtoproject(memberid) {
-                $.ajax({
-                    url: BASE_URL + 'projectmembers/store',
-                    dataType: 'json',
-                    data: {
-                        project_id: pid,
-                        member_id: memberid,
-                    },
-                    type: 'POST',
-                    success: function(response) {
-                        let memshow = $("#pmembershow");
-                        let srd = $("#searchresult");
-                        if (response.error) {
-                            $("#ajaxflash div p").text(response.error);
-                            $("#ajaxflash").fadeIn().fadeOut(5000);
-                            srd.html('').fadeOut(150);
-                        } else {
-                            $("#ajaxflash div p").text(response.success);
-                            $("#ajaxflash").fadeIn().fadeOut(5000);
-                            var appendble = `<div class="eachProjectMember " id="epm${response.data.id}">
-                                    <div class="flex items-center justify-between gap-2">
-                                        <div class="flex gap-2 px-4 py-2 hover:bg-seagreen/10 flex-grow">
-                                            <div class="p-1 w-12 aspect-square rounded-full bg-cover bg-center bg-no-repeat" style="background-image: url('${ BASE_URL+response.data.photo }')"></div>
-                                            <div class="">
-                                                <h3 class="text-lg font-semibold">${response.data.name}</h3>
-                                                <p>${response.data.designation}</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex h-8 w-8 justify-center items-center text-xl bg-seagreen/40 text-white hover:bg-seagreen ml-auto" onclick="deletethis(${response.data.id})">
-                                            <span class="mdi mdi-close"></span>
-                                        </div>
-                                    </div>
-                                </div>`;
-                            memshow.append(appendble);
-                            srd.html('').fadeOut(150);
-                            $("form#membersearchform").trigger("reset");
-                        }
-
-                    },
-                });
-            }
         </script>
     </x-slot>
 </x-admin-layout>

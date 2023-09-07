@@ -14,10 +14,46 @@
 
         <div class="card">
             <div class="p-6">
-                <div>
-                    <div id="table-queries"></div>
+                <form action="{{ route('categories.store') }}" method="post">
+                    <div class="grid lg:grid-cols-2 gap-5">
+                        @csrf
+                        @method('post')
 
-                </div>
+
+                        <div>
+                            <label for="name" class="block mb-2">Name</label>
+                            <input type="text" class="form-input" id="name" name="name" required>
+                        </div> <!-- end -->
+
+                        <div>
+                            <label for="slug" class="block mb-2">Slug</label>
+                            <input type="text" class="form-input" id="slug" name="slug" required=""
+                                readonly>
+                        </div> <!-- end -->
+
+                        <div>
+                            <label for="mode" class="block mb-2">Category Mode</label>
+                            <select class="form-select" id="mode" name="mode" required>
+                                    <option value="1">General</option>
+                                    <option value="2">Service</option>
+                                    <option value="3">Work</option>
+                            </select>
+                        </div> <!-- end -->
+
+
+                        <div>
+                            <label for="keywords" class="block mb-2">Keywords</label>
+                            <input type="text" class="form-input" id="keywords" name="keywords" required="">
+                        </div> <!-- end -->
+
+                        <div class="lg:col-span-2 mt-3">
+                            <button type="submit"
+                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SURE!'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Save</button>
+                        </div> <!-- end button -->
+
+
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -26,15 +62,11 @@
 
 
     <x-slot name="script">
-        <!-- Gridjs Plugin js -->
-        <script src="{{ asset('admindash/asset/libs/gridjs/gridjs.umd.js') }}"></script>
-
-        <!-- Gridjs Demo js -->
-        <script src="{{ asset('admindash/asset/js/pages/table-gridjs.init.js') }}"></script>
-        {{-- <script src="{{ asset('admindash/js/query.js') }}"></script> --}}
-
         <script>
-
+             $("form #name").on('blur', () => {
+                const slug = slugify($("form #name").val());
+                $("form #slug").val(slug);
+            });
         </script>
     </x-slot>
 </x-admin-layout>

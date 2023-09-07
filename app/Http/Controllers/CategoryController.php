@@ -42,7 +42,7 @@ class CategoryController extends Controller
             'mode' => $request->mode
         ]);
 
-        return redirect()->route('categories.index')->with(['message' => 'Category created successfully']);
+        return redirect()->route('categories.index')->with(['status' => 200, 'message' => 'Category created successfully']);
     }
 
     /**
@@ -51,7 +51,7 @@ class CategoryController extends Controller
     public function show($slug): View
     {
         $category = Category::where('slug',$slug)->first();
-        return view('works.index', [
+        return view('admin.categories.show', [
             'category' => $category,
         ]);
     }
@@ -62,7 +62,6 @@ class CategoryController extends Controller
     public function edit($slug)
     {
 
-        return $slug;
         $category = Category::where('slug',$slug)->first();
         return view('admin.categories.edit', [
             'category' => $category,
@@ -72,9 +71,18 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, $slug)
     {
-        //
+
+        // return $request;
+        $category = Category::where('slug',$slug)->first();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->keywords = $request->keywords;
+        $category->mode = $request->mode;
+        $category->update();
+        return redirect()->route('categories.index')->with(['status' => 200, 'message' => 'Category Updated']);
+
     }
 
     /**
@@ -82,6 +90,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response()->json(['success' => 'Category Detached and deleted !']);
     }
 }

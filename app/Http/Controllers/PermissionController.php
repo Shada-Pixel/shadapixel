@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\DB;
 class PermissionController extends Controller
 {
     // function __construct()
@@ -51,8 +52,8 @@ class PermissionController extends Controller
             'guard_name' => 'required',
         ]);
 
-        $role = Permission::create(['name' => $request->input('name')]);
-        return redirect()->route('permissions.index');
+        $role = Permission::create(['name' => $request->name, 'guard_name' => $request->guard_name]);
+        return response()->json(['success' => 'Permission Added']);
     }
 
     /**
@@ -106,7 +107,9 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         $permission = Permission::find($id);
+
+        DB::table('role_has_permissions')->where('permission_id', $id)->delete();
         $permission->delete();
-        return response()->json(['status' => 'success', 'message' => 'Permission deleted successfylly !']);
+        return response()->json(['success' => 'Permission Detached and deleted !']);
     }
 }

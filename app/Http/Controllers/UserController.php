@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use DB;
-use Hash;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -32,11 +33,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
     */
-    public function index(Request $request): View
+    public function index(Request $request)
     {
-        $data = User::latest()->paginate(5);
-        return view('users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        // $users = User::latest()->paginate(5);
+
+        // return view('admin.users.index',['users' => $users])
+        //     ->with('i', ($request->input('page', 1) - 1) * 5);
+
+
+        if ($request->ajax()) {
+            return Datatables::of(User::query())->make(true);
+        }
+        $users = User::all();
+        return view('admin.users.index',['users' => $users]);
     }
 
 

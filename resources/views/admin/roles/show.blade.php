@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">{{$project->name}}</x-slot>
+    <x-slot name="title">{{$role->name}} Role</x-slot>
 
 
     {{-- Header Style --}}
@@ -12,58 +12,24 @@
 
         <div class="card">
             <div class="p-6">
-                <div class="flex justify-between items-center">
-                    <span class="inline-flex items-center gap-1.5 py-0.5 text-xs font-medium bg-seagreen text-white px-2">#{{$project->category->name}}</span>
 
-                    <div class="flex gap-4">
-
-                        <a href="{{route('projectmembers.create',$project->slug)}}">
-                            <button type="button" class="btn border-seagreen text-seagreen hover:bg-seagreen hover:text-white">Manage Member</button>
-                        </a>
-                        <a href="{{route('projects.edit',$project->slug)}}">
-                            <button type="button" class="btn bg-seagreen text-white">Edit</button>
-                        </a>
-                    </div>
-                </div>
-                <p class="text-lg font-medium mt-4">Keywords</p>
-                <p class="border rounded p-4 mt-4">{{$project->keywords}}</p>
-                <p class="mt-4 text-lg font-medium">Tools and technologies</p>
-                <p class="border rounded p-4 mt-4">{{$project->tools}}</p>
-                <p class="mt-4 text-lg font-medium">Description</p>
-                <p class="border rounded p-4 mt-4">{!!$project->description!!}</p>
-                <p class="mt-4 text-lg font-medium">Live preview link</p>
-                <p class="border rounded p-4 mt-4">{{$project->link}}</p>
-
-            </div>
-        </div> <!-- end card -->
-
-        <div class="card">
-            <div class="p-6">
-                <p class="text-lg font-medium">Images</p>
-                <div class="grid lg:grid-cols-3">
-
-                    @if ($project->cover_home)
-                    <div class="">
-                        <p>Home Page Cover</p>
-                        <img src="{{asset($project->cover_home)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
-
-                    @if ($project->cover_work)
-                    <div class="">
-                        <p>Work Page Cover</p>
-                        <img src="{{asset($project->cover_work)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
-
-                    @if ($project->cover_details)
-                    <div class="">
-                        <p>Details Page Cover</p>
-                        <img src="{{asset($project->cover_details)}}" alt="" srcset="" class="w-full">
-                    </div>
-                    @endif
+                <div class="flex flex-wrap justify-between items-center">
+                    <h3 class="font-semibold text-2xl">All Permission this Role has:</h3>
+                    <a href="{{route('roles.edit',$role->id)}}">
+                        <button type="submit"
+                            class="font-mont px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SURE!'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">EDIT</button>
+                    </a>
                 </div>
 
+                <hr class="mt-4">
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 lg:col-span-2 mt-4">
+                    @foreach ($rolePermissions as $permission)
+                    <div class="flex items-center @if ($loop->first) col-span-2 sm:col-span-3 lg:col-span-4 @endif" >
+                        <p class="ms-1.5 capitalize">{{$permission->name}}</p>
+                    </div>
+                    @endforeach
+                </div>
 
             </div>
         </div> <!-- end card -->
@@ -76,14 +42,16 @@
     <x-slot name="script">
         <script>
             $(document).ready(function () {
-                $("form #name").on('blur', () => {
-                    const slug = slugify($("form #name").val());
-                    $("form #slug").val(slug);
+                // Check Uncheck All
+                $('#checkAllPermission').click(function () {
+                    $('.permission').prop('checked', this.checked);
+                });
+
+                $('.permission').change(function () {
+                    var check = ($('.permission').filter(":checked").length == $('.permission').length);
+                    $('#checkAllPermission').prop("checked", check);
                 });
             });
         </script>
     </x-slot>
 </x-admin-layout>
-
-
-

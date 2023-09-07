@@ -58,8 +58,8 @@ class RoleController extends Controller
 
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
-        return redirect()->route('roles.index')
-            ->with('success', 'Role created successfully');
+
+        return redirect()->route('roles.index')->with(['status' => 200, 'message' => 'Created Successfully!']);
     }
 
     /**
@@ -113,12 +113,10 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->name = $request->input('name');
         $role->save();
-
-
-
         $role->syncPermissions($request->input('permission'));
-        return redirect()->route('roles.index')
-            ->with('success', 'Role updated successfully');
+
+
+        return redirect()->route('roles.index')->with(['status' => 200, 'message' => 'Role updated successfully']);
     }
 
     /**
@@ -131,6 +129,8 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->delete();
-        return response()->json(['status' => 'success', 'message' => 'Role deleted successfylly !']);
+        DB::table('model_has_roles')->where('role_id', $id)->delete();
+        DB::table('role_has_permissions')->where('role_id', $id)->delete();
+        return response()->json(['success' => 'Role deleted successfylly !']);
     }
 }

@@ -166,6 +166,31 @@
 
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <span class="menu-icon"><i class="mdi mdi-account-supervisor-outline"></i></span>
+                    <span class="menu-text"> Users </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('users.index')}}" class="menu-link">
+                            <span class="menu-text">All User</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('users.create')}}" class="menu-link">
+                            <span class="menu-text">New User</span>
+                        </a>
+                    </li>
+                    {{-- <li class="menu-item">
+                        <a href="{{route('users.index')}}" class="menu-link">
+                            <span class="menu-text">User Trash</span>
+                        </a>
+                    </li> --}}
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-account-lock-open-outline"></i></span>
                     <span class="menu-text"> Role & Permission </span>
                     <span class="menu-arrow"></span>
