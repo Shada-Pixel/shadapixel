@@ -1,6 +1,6 @@
 <x-admin-layout>
     {{-- Title --}}
-    <x-slot name="title">Create Project</x-slot>
+    <x-slot name="title">Create User</x-slot>
 
 
     {{-- Header Style --}}
@@ -13,7 +13,7 @@
         <div class="card">
             <div class="p-6">
 
-                <form action="{{ route('projects.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('users.update',$user->id) }}" method="post" enctype="multipart/form-data">
                     <div class="grid lg:grid-cols-2 gap-5">
                         @csrf
                         @method('post')
@@ -25,77 +25,40 @@
                         </div> <!-- end -->
 
                         <div>
-                            <label for="slug" class="block mb-2">Slug</label>
-                            <input type="text" class="form-input" id="slug" name="slug" required=""
-                                readonly>
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="text" class="form-input" id="email" name="email" required="">
                         </div> <!-- end -->
 
                         <div>
-                            <label for="client" class="block mb-2">Client</label>
-                            <input type="text" class="form-input" id="client" name="client"
-                                >
+                            <label for="password" class="block mb-2">Password</label>
+                            <input type="password" class="form-input" id="password" name="password" required="">
                         </div> <!-- end -->
 
                         <div>
-                            <label for="keywords" class="block mb-2">Keywords</label>
-                            <input type="text" class="form-input" id="keywords" name="keywords" required="">
+                            <label for="password_confirmation" class="block mb-2">Confirm Password</label>
+                            <input type="password" class="form-input" id="password_confirmation" name="password_confirmation" required="">
                         </div> <!-- end -->
 
-                        <div>
-                            <label for="tools" class="block mb-2">Tools</label>
-                            <input type="text" class="form-input" id="tools" name="tools" required="">
-                        </div> <!-- end -->
 
                         <div>
-                            <label for="category_id" class="block mb-2">Category</label>
-                            <select class="form-select" id="category_id" name="category_id" required>
+                            <label for="role" class="block mb-2">Role</label>
+                            <select class="form-select" id="role" name="role" required>
                                 <option selected="" disabled value="">Choose...</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
                         </div> <!-- end -->
 
-
                         <div>
-                            <label class="block text-gray-600 mb-2" for="start_date">Start Date</label>
-                            <input class="form-input" id="start_date" type="date" name="start_date">
+                            <label class="block text-gray-600 mb-2" for="photo">Profile Picture</label>
+                            <input type="file" id="photo" class="form-input border" name="photo">
                         </div> <!-- end -->
-                        <div>
-                            <label class="block text-gray-600 mb-2" for="delivery_date">Delivery Date</label>
-                            <input class="form-input" id="delivery_date" type="date" name="delivery_date">
-                        </div> <!-- end -->
-
-
-                        <div>
-                            <label class="block text-gray-600 mb-2" for="description">Description</label>
-                            <textarea class="form-input" id="description" rows="5" name="description"></textarea>
-                        </div> <!-- end -->
-
-                        <div>
-                            <label for="link" class="block mb-2">Live Preview</label>
-                            <input type="text" class="form-input" id="link" name="link" required="">
-                        </div> <!-- end -->
-
-
-                        <div>
-                            <label class="block text-gray-600 mb-2" for="cover_home">Home Page Cover</label>
-                            <input type="file" id="cover_home" class="form-input border" name="cover_home">
-                        </div> <!-- end -->
-                        <div>
-                            <label class="block text-gray-600 mb-2" for="cover_work">Work Page Cover</label>
-                            <input type="file" id="cover_work" class="form-input border" name="cover_work">
-                        </div> <!-- end -->
-                        <div>
-                            <label class="block text-gray-600 mb-2" for="cover_details">Details Page Cover</label>
-                            <input type="file" id="cover_details" class="form-input border" name="cover_details">
-                        </div> <!-- end -->
-
 
 
                         <div class="lg:col-span-2 mt-3">
                             <button type="submit"
-                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SAVE'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Save</button>
+                                class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['SURE!'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Save</button>
                         </div> <!-- end button -->
 
 
