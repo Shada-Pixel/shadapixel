@@ -27,6 +27,11 @@ class Project extends Model
         'status'
     ];
 
+    protected $casts = [
+        'start_date ' => 'date:d-m, Y',
+        'delivery_date ' => 'date:d-m, Y',
+    ];
+
 
 
 

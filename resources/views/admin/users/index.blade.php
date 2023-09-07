@@ -24,40 +24,6 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    {{-- <tbody>
-                        @foreach ($users as $user)
-
-                        <tr>
-                            <td>{{$loop->index}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-
-                            <td>
-                                <div class="flex items-center justify-start">
-
-                                    @foreach ($user->roles as $role)
-                                    <p>
-                                        <span class="uppercase inline-flex items-center gap-1.5 py-0.5 px-1.5 text-xs font-medium bg-seagreen text-white">{{$role->name}}</span>
-                                    </p>
-                                    @endforeach
-                                </div>
-                            </td>
-                            <td>
-                                <div class="flex flex-col sm:flex-row gap-5 justify-end items-center">
-                                <a href="{{route('users.show',$user->id)}}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
-                                    <span class="menu-icon"><i class="mdi mdi-eye"></i></span>
-                                </a>
-                                <a href="{{route('users.edit',$user->id)}}" class="text-seagreen/70 hover:text-seagreen  hover:scale-105 transition duration-150 ease-in-out text-xl" >
-                                    <span class="menu-icon"><i class="mdi mdi-table-edit"></i></span>
-                                </a>
-                                <button type="button"  class="text-red-500/70 hover:text-red  hover:scale-105 transition duration-150 ease-in-out text-xl" onclick="userDelete('{{$user->id}}');">
-                                    <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody> --}}
                 </table>
             </div>
         </div>
@@ -86,6 +52,10 @@
                     {
                         data: 'email',
                         name: 'email'
+                    },
+                    {
+                        data: 'intro',
+                        name: 'intro'
                     },
                     {
                         data: null,

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -42,10 +43,17 @@ class UserController extends Controller
 
 
         if ($request->ajax()) {
-            return Datatables::of(User::query())->make(true);
+
+            $users = User::with('roles')->get();
+            return Datatables::of($users)
+                ->addColumn('intro', function (User $user) {
+                    return $user->roles->first()->name;
+                })
+                ->make(true);
         }
-        $users = User::all();
-        return view('admin.users.index',['users' => $users]);
+        $users = User::with('roles')->get();
+        // return $users->first()->roles->first()->name;
+        return view('admin.users.index');
     }
 
 
@@ -71,21 +79,28 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    public function store(Request $request): RedirectResponse
+    // : RedirectResponse
+    public function store(StoreUserRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-        return redirect()->route('users.index')->with('success','User created successfully');
+
+        // user photo
+        if ($request->file('photo')) {
+            $cover = $request->file('photo');
+            $image_full_name = time().'photo'.'.'.$cover->getClientOriginalExtension();
+            $upload_path = 'images/users/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $cover->move($upload_path, $image_full_name);
+            $user->photo = $image_url;
+        }
+        $user->save();
+
+        $user->assignRole($request->role);
+        return redirect()->route('users.index')->with(['status' => 200, 'message' => 'User Created!']);
 
     }
 
@@ -149,6 +164,21 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+
+        // user photo
+        if ($request->file('photo')) {
+            // Delete old photo
+            if ($user->photo) {
+                unlink($user->photo);
+            }
+            $cover = $request->file('photo');
+            $image_full_name = time() . 'photo' . '.' . $cover->getClientOriginalExtension();
+            $upload_path = 'images/users/';
+            $image_url = $upload_path . $image_full_name;
+            $success = $cover->move($upload_path, $image_full_name);
+            $user->photo = $image_url;
+        }
+
         $user->update();
 
         DB::table('model_has_roles')->where('model_id',$id)->delete();
@@ -172,6 +202,10 @@ class UserController extends Controller
     {
 
         $user = User::find($id);
+        // Delete old photo
+        if ($user->photo) {
+            unlink($user->photo);
+        }
         $user->delete();
         return response()->json(['success' => 'User deleted !']);
     }

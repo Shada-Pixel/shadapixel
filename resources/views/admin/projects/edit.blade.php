@@ -55,6 +55,9 @@
                         </div> <!-- end -->
 
 
+
+
+
                         <div>
                             <label class="block text-gray-600 mb-2" for="start_date">Start Date</label>
                             <input class="form-input" id="start_date" type="date" name="start_date" value="{{$project->start_date}}">
@@ -63,6 +66,8 @@
                             <label class="block text-gray-600 mb-2" for="delivery_date">Delivery Date</label>
                             <input class="form-input" id="delivery_date" type="date" name="delivery_date" value="{{$project->delivery_date}}">
                         </div> <!-- end -->
+
+                        {{-- @dd($project->start_date) --}}
 
 
                         <div>
