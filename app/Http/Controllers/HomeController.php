@@ -19,13 +19,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->middleware('permission:admin-dash', ['only' => ['dashboard']]);
+    // function __construct()
+    // {
+        // $this->middleware('permission:admin-dash', ['only' => ['dashboard']]);
         // $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
         // $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
         // $this->middleware('permission:user-delete', ['only' => ['destroy']]);
-    }
+    // }
 
     /**
      * Display visitor home page.
@@ -65,12 +65,7 @@ class HomeController extends Controller
         return view('works.uiux');
     }
 
-    // Displaying dashboard work page
-    public function dashboard(Request $request): View
-    {
-        return view('admin.dashboard');
-    }
-
+    
 
     public function industries($industry)
     {

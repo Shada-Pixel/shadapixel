@@ -22,7 +22,12 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string',
+            'slug' => 'required|string|unique:categories,slug',
+            'mode' => 'required|string',
+            'keywords' => 'required|string'
         ];
+
+        // |unique:users,email
     }
 }

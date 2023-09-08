@@ -166,7 +166,7 @@
             <div class="fc-dropdown fc-dropdown-open:opacity-100 hidden opacity-0 w-44 z-50 transition-[margin,opacity] duration-300 bg-white shadow-lg border rounded py-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800">
                 <h6 class="py-2 px-5">Welcome !</h6>
 
-                <a class="flex items-center py-2 px-5 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="pages-gallery.html">
+                <a class="flex items-center py-2 px-5 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{route('profile.edit')}}">
                     <i data-lucide="user" class="w-4 h-4 me-2"></i>
                     <span>My Account</span>
                 </a>
@@ -179,10 +179,15 @@
                     <span>Lock Screen</span>
                 </a>
                 <hr class="my-2 -mx-2 border-gray-200 dark:border-gray-700">
-                <a class="flex items-center py-2 px-5 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="auth-login.html">
-                    <i data-lucide="log-out" class="w-4 h-4 me-2"></i>
-                    <span>Logout</span>
-                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <button type="submit" onclick="event.preventDefault(); this.closest('form').submit();" class="w-full flex items-center py-2 px-5 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                        <i data-lucide="log-out" class="w-4 h-4 me-2"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
             </div>
         </div>
 

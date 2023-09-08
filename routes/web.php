@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QueryController;
-use \App\Http\Controllers\Actions\FetchCategoryController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProjectMemberController;
@@ -31,7 +31,6 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/story', 'story')->name('story');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/career', 'career')->name('career');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/industries/{industry}', 'industries')->name('industries.show');
     Route::get('/project_details/{project}', 'pdtails')->name('projects.details');
 });
@@ -41,7 +40,10 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
+
     Route::resource('queries', QueryController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('projects', ProjectController::class);
