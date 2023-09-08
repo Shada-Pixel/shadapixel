@@ -44,9 +44,17 @@
                     <x-nav-link :href="route('career')" :active="request()->routeIs('career')">
                         {{ __('Career') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
+                    @auth
+                        @role('admin')
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        @endrole
+                    @endauth
 
 
 

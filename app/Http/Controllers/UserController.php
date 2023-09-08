@@ -21,13 +21,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
     */
-    // function __construct()
-    // {
-    //     $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
-    //     $this->middleware('permission:product-create', ['only' => ['create','store']]);
-    //     $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
-    //     $this->middleware('permission:product-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:user-create', ['only' => ['create','store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -181,8 +181,8 @@ class UserController extends Controller
 
         $user->update();
 
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
-        $user->assignRole($request->role);
+        // DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $user->syncRoles($request->role);
 
 
         return redirect()->route('users.index')->with(['status' => 200, 'message' => 'User updated successfully']);

@@ -37,26 +37,28 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 
-Route::resource('queries', QueryController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('projects', ProjectController::class);
-Route::resource('members', MemberController::class);
-Route::resource('projectmembers', ProjectMemberController::class);
-
-Route::resource('roles', RoleController::class);
-Route::resource('users', UserController::class);
-Route::resource('permissions', PermissionController::class);
-
-Route::group(['prefix' => 'projectmembers'], function () {
-    Route::get('/', [ProjectMemberController::class,  'index'])->name('projectmembers.index');
-    Route::get('/create/{project}', [ProjectMemberController::class,  'create'])->name('projectmembers.create');
-    Route::get('/search/{query}', [ProjectMemberController::class,  'search'])->name('projectmembers.search');
-    Route::post('/store', [ProjectMemberController::class,  'store'])->name('projectmembers.store');
-    Route::delete('/delete/{project}', [ProjectMemberController::class,  'destroy'])->name('projectmembers.destroy');
-});
 
 
 Route::middleware('auth')->group(function () {
+
+    
+    Route::resource('queries', QueryController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('projects', ProjectController::class);
+    Route::resource('members', MemberController::class);
+    Route::resource('projectmembers', ProjectMemberController::class);
+
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('permissions', PermissionController::class);
+
+    Route::group(['prefix' => 'projectmembers'], function () {
+        Route::get('/', [ProjectMemberController::class,  'index'])->name('projectmembers.index');
+        Route::get('/create/{project}', [ProjectMemberController::class,  'create'])->name('projectmembers.create');
+        Route::get('/search/{query}', [ProjectMemberController::class,  'search'])->name('projectmembers.search');
+        Route::post('/store', [ProjectMemberController::class,  'store'])->name('projectmembers.store');
+        Route::delete('/delete/{project}', [ProjectMemberController::class,  'destroy'])->name('projectmembers.destroy');
+    });
 
 
 

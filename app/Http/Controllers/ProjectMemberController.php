@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateProjectMemberRequest;
 
 class ProjectMemberController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */

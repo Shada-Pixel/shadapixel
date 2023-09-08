@@ -60,14 +60,12 @@
 
                         <div>
                             <label class="block text-gray-600 mb-2" for="start_date">Start Date</label>
-                            <input class="form-input" id="start_date" type="date" name="start_date" value="{{$project->start_date}}">
+                            <input class="form-input" id="start_date" type="date" name="start_date" value="{{date('Y-m-d',strtotime($project->start_date))}}" raquired>
                         </div> <!-- end -->
                         <div>
                             <label class="block text-gray-600 mb-2" for="delivery_date">Delivery Date</label>
-                            <input class="form-input" id="delivery_date" type="date" name="delivery_date" value="{{$project->delivery_date}}">
+                            <input class="form-input" id="delivery_date" type="date" name="delivery_date" value="{{date('Y-m-d',strtotime($project->delivery_date))}}" required>
                         </div> <!-- end -->
-
-                        {{-- @dd($project->start_date) --}}
 
 
                         <div>

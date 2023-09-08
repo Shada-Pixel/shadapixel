@@ -159,8 +159,8 @@
         <!-- Profile Dropdown Button -->
         <div class="relative">
             <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link flex items-center">
-                <img src="{{asset('admindash/asset/images/users/user-1.jpg')}}" alt="user-image" class="rounded-full h-8 w-8">
-                <span class="text-sm mx-2">Nowak</span>
+                <img src="{{asset(Auth::user()->photo)}}" alt="user-image" class="rounded-full h-8 w-8">
+                <span class="text-sm mx-2">{{Auth::user()->name}}</span>
                 <i class="mdi mdi-chevron-down"></i>
             </button>
             <div class="fc-dropdown fc-dropdown-open:opacity-100 hidden opacity-0 w-44 z-50 transition-[margin,opacity] duration-300 bg-white shadow-lg border rounded py-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800">
