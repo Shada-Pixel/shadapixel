@@ -323,7 +323,9 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
             <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">Want to learn more?</h2>
             <p>Discover our work of stunning digital projects that showcase our expertise and creativity.</p>
-            <x-primary-button>Get in touch</x-primary-button>
+            <a href="{{route('contact')}}">
+                <x-primary-button>Get in touch</x-primary-button>
+            </a>
             <div class="flex items-center gap-10 sm:gap-20 mt-16">
                 <div class="">
                     <h3 class="text-lg font-bold">Mehnaz Afsana</h3>
