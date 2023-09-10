@@ -214,6 +214,32 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <span class="menu-icon"><i class="mdi mdi-target"></i></span>
+                    <span class="menu-text"> Cearer </span>
+                    <span class="menu-arrow"></span>
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('carers.index')}}" class="menu-link">
+                            <span class="menu-text">All Vacancy</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('carers.create')}}" class="menu-link">
+                            <span class="menu-text">Create Vacancy</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="icons-material-symbols.html" class="menu-link">
+                            <span class="menu-text">Job Applications</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mdi mdi-shield-outline"></i></span>
