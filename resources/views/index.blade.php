@@ -1,14 +1,26 @@
 <x-guest-layout>
+
+    <x-slot name="headerstyle">
+        <link rel="stylesheet" href="{{asset('css/textswitch.css')}}">
+    </x-slot>
+
     {{-- hero section --}}
     <div class="h-screen max-h-[930px] bg-cover bg-center"
         style="background-image: url('{{ asset('images/hero.jpg') }}');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-start items-center  text-white h-full">
             <div class="">
-                <p class="font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Design</p>
+                {{-- <p class="font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Design</p> --}}
+                <div class="text mb-8">
+                    <p>
+                        <span class="word font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Design</span>
+                        <span class="word font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Development</span>
+                        <span class="word font-dm font-normal text-sm tracking-[.3em] uppercase mb-4">Marketing</span>
+                    </p>
+                </div>
                 <h1 class="font-mont font-bold text-4xl sm:text-7xl">Visionary ideas<br>
                     for the future</h1>
-                    <a href="{{route('home')}}">
-                        <x-primary-buttonw>View all works</x-primary-buttonw>
+                    <a href="{{ route('story') }}">
+                        <x-primary-buttonw>read our story</x-primary-buttonw>
                     </a>
             </div>
         </div>
@@ -196,7 +208,7 @@
                     that exceed expectations. Our dedication to delivering excellence and our commitment to continuous
                     innovation sets us apart as a digital agency that can turn visions into reality.</p>
 
-                <x-primary-button>Contact Us</x-primary-button>
+                    <a href="{{route('contact')}}"><x-primary-button>Contact Us</x-primary-button></a>
 
             </div>
         </div>
@@ -384,6 +396,10 @@
             </div>
         </div>
     </div>
+
+    <x-slot name="script">
+        <script src="{{asset('js/textswitch.js')}}"></script>
+    </x-slot>
 
 
 </x-guest-layout>

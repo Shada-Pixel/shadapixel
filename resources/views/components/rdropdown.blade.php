@@ -3,14 +3,14 @@
 @php
 switch ($align) {
     case 'left':
-        $alignmentClasses = 'origin-top-left left-0';
+        $alignmentClasses = 'origin-top-left left-full';
         break;
     case 'top':
         $alignmentClasses = 'origin-top';
         break;
     case 'right':
     default:
-        $alignmentClasses = 'origin-top-right right-0';
+        $alignmentClasses = 'top-0 right-full';
         break;
 }
 
@@ -21,8 +21,8 @@ switch ($width) {
 }
 @endphp
 
-<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-    <div @click="open = ! open">
+<div class="relative w-full" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+    <div @click="open = ! open" class="w-full">
         {{ $trigger }}
     </div>
 
