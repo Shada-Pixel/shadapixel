@@ -41,7 +41,15 @@ class HomeController extends Controller
     // Displaying story page
     public function story(Request $request): View
     {
-        return view('story');
+
+        $exicutives = Member::where('executive',1)->get();
+        return view('story',['exicutives' => $exicutives]);
+    }
+
+    // Displaying services page
+    public function services(Request $request): View
+    {
+        return view('services');
     }
 
 
@@ -65,7 +73,7 @@ class HomeController extends Controller
         return view('works.uiux');
     }
 
-    
+
 
     public function industries($industry)
     {

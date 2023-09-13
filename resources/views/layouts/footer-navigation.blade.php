@@ -6,13 +6,10 @@
     <x-foot-link :href="route('story')">
         {{ __('Story') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')">
+    <x-foot-link :href="route('services')">
         {{ __('Service') }}
     </x-foot-link>
-    <x-foot-link :href="route('dashboard')">
-        {{ __('Work') }}
-    </x-foot-link>
-    <x-foot-link :href="route('dashboard')">
+    <x-foot-link :href="route('career')">
         {{ __('Career') }}
     </x-foot-link>
     <x-foot-link :href="route('contact')">

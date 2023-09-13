@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('story')" :active="request()->routeIs('story')">
                         {{ __('Story') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Service') }}
                     </x-nav-link>
                     <!-- Work Dropdown -->
@@ -78,7 +78,7 @@
             <x-responsive-nav-link :href="route('story')" :active="request()->routeIs('story')">
                 {{ __('Story') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('services')" :active="request()->routeIs('services')">
                 {{ __('Service') }}
             </x-responsive-nav-link>
             <!-- Work Dropdown -->

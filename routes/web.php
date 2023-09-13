@@ -27,12 +27,13 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::controller(HomeController::class)->group(function () {
+Route::controller( HomeController::class )->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/story', 'story')->name('story');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/career', 'career')->name('career');
-    Route::get('/industries/{industry}', 'industries')->name('industries.show');
+    Route::get('/allservices', 'services')->name('services');
+    Route::get('/works/{industry}', 'industries')->name('industries.show');
     Route::get('/project_details/{project}', 'pdtails')->name('projects.details');
 });
 

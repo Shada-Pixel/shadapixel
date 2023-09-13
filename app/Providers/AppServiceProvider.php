@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function($view){
-            $workcat = Category::where('mode',3)->take(4)->get();
+            $workcat = Category::where('mode',3)->get();
             $view->with('workcat',$workcat);
         });
 

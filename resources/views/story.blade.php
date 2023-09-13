@@ -76,86 +76,26 @@
 
             {{-- team members --}}
             <div class="grid grid-cols-1 sm:grid-cols-4 sm:gap-5 sm:[&>*:nth-child(even)]:-mt-[120px]">
+                @foreach ($exicutives as $member)
+
                 {{-- member --}}
                 <div class="mb-5">
-                    <img src="{{ asset('images/members/member (1).jpg') }}" alt="" srcset=""
-                        class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">UI/UX Designer</p>
+                    <img src="{{ asset($member->photo) }}" alt="{{$member->name}}" srcset=""
+                        class="mb-8">
+                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$member->designation}}</p>
 
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Ishtiuq Ahmed Chowdhury</h3>
+                    <h3 class="font-mont font-bold text-base sm:text-lg">{{$member->name}}</h3>
                     <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span
-                                class="iconify" data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span
-                                class="iconify" data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
-                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
+                        @foreach ($member->soocial_medias as $sm)
+                            @if ($sm['name'] != null)
+
+                            <a class="hover:text-seagreen" href="{{$sm['link']}}"
+                                target="_blank"><span class="iconify" data-icon="iconoir:{{$sm['icon']}}"></span></a>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
-                {{-- member --}}
-                <div class="mb-5">
-                    <img src="{{ asset('images/members/member (2).jpg') }}" alt="" srcset=""
-                        class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Web Developer</p>
-
-                    <h3 class="font-mont font-bold text-base sm:text-lg">MD. Sabbir Hussain</h3>
-                    <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span
-                                class="iconify" data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span
-                                class="iconify" data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
-                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
-                    </div>
-                </div>
-                {{-- member --}}
-                <div class="mb-5">
-                    <img src="{{ asset('images/members/member (3).jpg') }}" alt="" srcset=""
-                        class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">CMO</p>
-
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Asif Shuvo</h3>
-                    <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/"
-                            target="_blank"><span class="iconify" data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/"
-                            target="_blank"><span class="iconify" data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed"
-                            target="_blank"><span class="iconify" data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span
-                                class="iconify" data-icon="icon-park-outline:dribble"></span></a>
-                    </div>
-                </div>
-                {{-- member --}}
-                {{-- <div class="mb-5">
-                    <img src="{{ asset('images/members/member (4).jpg') }}" alt="" srcset=""
-                        class="mb-8 w-full">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">Business Consultant</p>
-
-                    <h3 class="font-mont font-bold text-base sm:text-lg">Shadman Nazim</h3>
-                    <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        <a class="hover:text-seagreen" href="https://www.facebook.com/IamIshtiuq/" target="_blank"><span class="iconify"
-                                data-icon="circum:facebook"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.linkedin.com/in/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:linkedin"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.instagram.com/ishtiuqahmed/" target="_blank"><span class="iconify"
-                                data-icon="circum:instagram"></span></a>
-                        <a class="hover:text-seagreen" href="https://www.behance.net/ishtiuqahmed" target="_blank"><span class="iconify"
-                                data-icon="ph:behance-logo-bold"></span></a>
-                        <a class="hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify"
-                                data-icon="icon-park-outline:dribble"></span></a>
-                    </div>
-                </div> --}}
+                @endforeach
             </div>
         </div>
     </div>
