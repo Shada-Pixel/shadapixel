@@ -28,8 +28,14 @@ class RoleSeeder extends Seeder
         // Creating roles and assigning permission
         foreach ($rolenames as $rolename) {
             $role = Role::create(['name' => $rolename]);
-            // $permissions = Permission::pluck('id','id')->all();
-            // $role->syncPermissions($permissions);
         }
+
+        $permissions = Permission::pluck('id','id')->all();
+        $adminRole = Role::where('name','admin')->first();
+        $adminRole->syncPermissions($permissions);
+
+
+
+
     }
 }

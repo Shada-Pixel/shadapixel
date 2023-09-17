@@ -25,11 +25,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin123'),
         ]);
         $adminrole = Role::where('name','admin')->first();
-        $userrole = Role::where('name','user')->first();
         $adminuser->assignRole([$adminrole->id]);
 
 
 
+        $userrole = Role::where('name','user')->first();
         $faker = Faker::create();
 
         foreach (range(1, 100) as $index) {
