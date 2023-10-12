@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function story(Request $request): View
     {
 
-        $exicutives = Member::where('executive',1)->get();
+        $exicutives = Member::where('type',1)->get();
         return view('story',['exicutives' => $exicutives]);
     }
 

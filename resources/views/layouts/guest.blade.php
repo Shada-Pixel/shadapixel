@@ -77,6 +77,11 @@
 
 
     <div class="min-h-screen">
+
+        
+
+
+
         @include('layouts.guest-navigation')
 
         <!-- Page Heading -->
