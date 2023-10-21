@@ -1,7 +1,8 @@
 <x-guest-layout>
 
     <x-slot name="headerstyle">
-        <link rel="stylesheet" href="{{asset('css/textswitch.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/textswitch.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/marquee.css') }}">
     </x-slot>
 
     {{-- hero section --}}
@@ -19,9 +20,9 @@
                 </div>
                 <h1 class="font-mont font-bold text-4xl sm:text-7xl">Visionary ideas<br>
                     for the future</h1>
-                    <a href="{{ route('story') }}">
-                        <x-primary-buttonw>read our story</x-primary-buttonw>
-                    </a>
+                <a href="{{ route('story') }}">
+                    <x-primary-buttonw>read our story</x-primary-buttonw>
+                </a>
             </div>
         </div>
     </div>
@@ -208,7 +209,7 @@
                     that exceed expectations. Our dedication to delivering excellence and our commitment to continuous
                     innovation sets us apart as a digital agency that can turn visions into reality.</p>
 
-                    <a href="{{route('contact')}}"><x-primary-button>Contact Us</x-primary-button></a>
+                <a href="{{ route('contact') }}"><x-primary-button>Contact Us</x-primary-button></a>
 
             </div>
         </div>
@@ -216,83 +217,185 @@
     </div>
 
     {{-- clients --}}
-    <div class="">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 grid grid-cols-2 sm:grid-cols-6 gap-10 sm:gap-20">
+    <section>
+
+        <div class="max-w-7xl mx-auto py-12 sm:py-24">
+
+            <div class="marquee marquee--hover-pause">
+                <div class="marquee__content flex-shrink-0 flex justify-around gap-4 min-w-full items-center">
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/enso.png') }}" alt="" srcset=""
+                            class="h-20">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/logoipsum.svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset="" class="w-full">
-            </div>
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+                </div>
+
+                <div aria-hidden="true" class="marquee__content flex-shrink-0 flex justify-around gap-4 min-w-full items-center">
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/enso.png') }}" alt="" srcset=""
+                            class="h-20">
+                    </div>
 
 
-            {{-- client --}}
-            <div class="">
-                <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset="" class="w-full">
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+
+
+                    {{-- client --}}
+                    <div class="">
+                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
+                            class="w-full">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+    </section>
+
 
 
     {{-- update --}}
@@ -335,7 +438,7 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
             <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">Want to learn more?</h2>
             <p>Discover our work of stunning digital projects that showcase our expertise and creativity.</p>
-            <a href="{{route('contact')}}">
+            <a href="{{ route('contact') }}">
                 <x-primary-button>Get in touch</x-primary-button>
             </a>
             <div class="flex items-center gap-10 sm:gap-20 mt-16">
@@ -373,24 +476,23 @@
             <div class="sm:w-1/2 grid grid-cols-2 gap-5">
 
                 @foreach ($exicutives as $member)
+                    {{-- member --}}
+                    <div class="mb-5">
+                        <img src="{{ asset($member->photo) }}" alt="{{ $member->name }}" srcset=""
+                            class="mb-8">
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">
+                            {{ $member->designation }}</p>
 
-                {{-- member --}}
-                <div class="mb-5">
-                    <img src="{{ asset($member->photo) }}" alt="{{$member->name}}" srcset=""
-                        class="mb-8">
-                    <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$member->designation}}</p>
-
-                    <h3 class="font-mont font-bold text-base sm:text-lg">{{$member->name}}</h3>
-                    <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
-                        @foreach ($member->soocial_medias as $sm)
-                            @if ($sm['name'] != null)
-
-                            <a class="hover:text-seagreen" href="{{$sm['link']}}"
-                                target="_blank"><span class="iconify" data-icon="iconoir:{{$sm['icon']}}"></span></a>
-                            @endif
-                        @endforeach
+                        <h3 class="font-mont font-bold text-base sm:text-lg">{{ $member->name }}</h3>
+                        <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
+                            @foreach ($member->soocial_medias as $sm)
+                                @if ($sm['name'] != null)
+                                    <a class="hover:text-seagreen" href="{{ $sm['link'] }}" target="_blank"><span
+                                            class="iconify" data-icon="iconoir:{{ $sm['icon'] }}"></span></a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
-                </div>
                 @endforeach
 
             </div>
@@ -398,7 +500,7 @@
     </div>
 
     <x-slot name="script">
-        <script src="{{asset('js/textswitch.js')}}"></script>
+        <script src="{{ asset('js/textswitch.js') }}"></script>
     </x-slot>
 
 
