@@ -221,175 +221,36 @@
 
         <div class="max-w-7xl mx-auto py-12 sm:py-24">
 
-            <div class="marquee marquee--hover-pause">
-                <div class="marquee__content flex-shrink-0 flex justify-around gap-4 min-w-full items-center">
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/enso.png') }}" alt="" srcset=""
-                            class="h-20">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
+            <div class="grid grid-cols-3 gap-10">
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/usawa.png') }}" alt="" srcset=""
+                        class="h-14 w-auto">
                 </div>
-
-                <div aria-hidden="true" class="marquee__content flex-shrink-0 flex justify-around gap-4 min-w-full items-center">
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/enso.png') }}" alt="" srcset=""
-                            class="h-20">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo.svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(1).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(3).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(5).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(6).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(7).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(8).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(9).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
-
-
-                    {{-- client --}}
-                    <div class="">
-                        <img src="{{ asset('images/clients/Logo(2).svg') }}" alt="" srcset=""
-                            class="w-full">
-                    </div>
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/rb.svg') }}" alt="" srcset=""
+                        class="h-14 w-auto">
+                </div>
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/afn.svg') }}" alt="" srcset=""
+                        class="h-14 w-auto">
+                </div>
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/bcnf.png') }}" alt="" srcset=""
+                        class="h-14 w-auto">
+                </div>
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/bm.png') }}" alt="" srcset=""
+                        class="h-14 w-auto">
+                </div>
+                {{-- client --}}
+                <div class="">
+                    <img src="{{ asset('images/clients/abn.png') }}" alt="" srcset=""
+                        class="h-14 w-auto">
                 </div>
             </div>
         </div>
@@ -501,6 +362,7 @@
 
     <x-slot name="script">
         <script src="{{ asset('js/textswitch.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     </x-slot>
 
 
