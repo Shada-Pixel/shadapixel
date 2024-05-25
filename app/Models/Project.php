@@ -45,4 +45,5 @@ class Project extends Model
     {
         return $this->belongsToMany(Member::class, ProjectMember::class);
     }
+
 }

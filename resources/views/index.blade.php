@@ -30,10 +30,10 @@
 
     {{-- services --}}
     <div class="py-12 sm:py-24 bg-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-5 space-y-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-12 space-y-5">
             {{-- heading --}}
-            <div class="sm:col-span-2">
-                <h2 class="font-mont font-bold text-3xl sm:text-6xl">Transforming<br> Ideas into Digital <span
+            <div class="">
+                <h2 class="font-mont font-bold text-2xl sm:text-5xl">Transforming<br> Ideas into Digital <span
                         class="">Success</span> </h2>
             </div>
 
@@ -64,13 +64,13 @@
                     of your target audience.</p>
             </div>
             {{-- serviece item --}}
-            <div class="showOnScroll transition-all duration-500 ease-in-out delay-125">
+            {{-- <div class="showOnScroll transition-all duration-500 ease-in-out delay-125">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">EDITING</p>
                 <h3 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Video Editing</h3>
                 <p>Our video editing service helps businesses create compelling video content that engages their target
                     audience. Whether it's a promotional video, a social media clip, or a training video, we use our
                     expertise in video editing to create content that tells your brand story effectively.</p>
-            </div>
+            </div> --}}
             {{-- serviece item --}}
             <div class="showOnScroll transition-all duration-500 ease-in-out delay-150">
                 <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">WEB</p>
@@ -91,55 +91,31 @@
         </div>
     </div>
 
-    {{-- blog --}}
+    {{-- projects --}}
     <div class="py-12 sm:py-24 overflow-hidden">
+
+        <div class="max-w-7xl mx-auto pl-6 mb-12"><h2 class="font-mont font-bold text-5xl">Recent<br>Projects</h2></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  flex gap-5 relative ">
             <div class="sm:min-w-[100vw] ">
                 <div class="owl-carousel blogCarousal owl-theme  sm:left-0">
+                    @forelse ($industry->projects as $project)
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset('images/blogs/cover (1).jpg') }}" alt="" srcset=""
+                        <img src="{{ asset($project->cover_work) }}" alt="" srcset=""
                             class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
-                            02, 2023
+                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$industry->name}} | {{ date('M d, Y', strtotime($project->delivery_date)) }}
                         </p>
-                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                        <x-primary-button>Read More</x-primary-button>
-
+                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">{{ $project->name }}</h4>
+                        <a href="{{ route('projects.details', $project->slug) }}" target="_blank">
+                            <x-primary-button>Read More</x-primary-button>
+                        </a>
                     </div>
-                    {{-- item --}}
-                    <div class="item">
-                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset=""
-                            class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
-                            02, 2023
-                        </p>
-                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                        <x-primary-button>Read More</x-primary-button>
-
+                    @empty
+                    <div class="py-20 flex justify-center items-center sm:col-span-4">
+                        <h2 class="text-center font-bold font-mont text-4xl">We are working right now <span class="text-seagreen">....</span></h2>
                     </div>
-                    {{-- item --}}
-                    <div class="item">
-                        <img src="{{ asset('images/blogs/cover (3).jpg') }}" alt="" srcset=""
-                            class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
-                            02, 2023
-                        </p>
-                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                        <x-primary-button>Read More</x-primary-button>
+                    @endforelse
 
-                    </div>
-                    {{-- item --}}
-                    <div class="item">
-                        <img src="{{ asset('images/blogs/cover (2).jpg') }}" alt="" srcset=""
-                            class="mb-8">
-                        <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">DESIGN | JAN
-                            02, 2023
-                        </p>
-                        <h4 class="font-mont font-bold text-2xl sm:text-3xl mb-2">Creative Team</h4>
-                        <x-primary-button>Read More</x-primary-button>
-
-                    </div>
                 </div>
 
             </div>
@@ -221,7 +197,7 @@
 
         <div class="max-w-7xl mx-auto py-12 sm:py-24">
 
-            <div class="grid grid-cols-3 gap-10">
+            <div class="grid grid-cols-4 gap-10">
                 {{-- client --}}
                 <div class="">
                     <img src="{{ asset('images/clients/usawa.png') }}" alt="" srcset=""
@@ -238,20 +214,20 @@
                         class="h-14 w-auto">
                 </div>
                 {{-- client --}}
-                <div class="">
+                {{-- <div class="">
                     <img src="{{ asset('images/clients/bcnf.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
-                </div>
+                </div> --}}
                 {{-- client --}}
                 <div class="">
                     <img src="{{ asset('images/clients/bm.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
                 </div>
                 {{-- client --}}
-                <div class="">
+                {{-- <div class="">
                     <img src="{{ asset('images/clients/abn.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
-                </div>
+                </div> --}}
             </div>
         </div>
 

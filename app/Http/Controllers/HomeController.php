@@ -34,7 +34,11 @@ class HomeController extends Controller
     {
 
         $exicutives = Member::where('executive',1)->get();
-        return view('index',['exicutives' => $exicutives]);
+
+
+        $industry = Category::with('projects')->where('slug', 'web-development')->first();
+
+        return view('index',['exicutives' => $exicutives, 'industry' => $industry]);
     }
 
 
@@ -80,6 +84,16 @@ class HomeController extends Controller
         $industry = Category::with('projects')->where('slug', $industry)->first();
         return view('works.index', [
             'industry' => $industry,
+        ]);
+    }
+
+
+    // Members Parotfolio
+    public function memberProtfolio($member)
+    {
+        $member = Member::with('projects')->find($member);
+        return view('members.index', [
+            'member' => $member,
         ]);
     }
 

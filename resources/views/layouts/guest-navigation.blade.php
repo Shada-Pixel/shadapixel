@@ -1,16 +1,17 @@
 <div class="bg-transparent absolute top-0 left-0 w-full">
 
     {{-- Top nav --}}
-    <div class="py-2 flex justify-center items-center bg-white">
+    <div class="py-2 hidden justify-center items-center bg-white">
         <div class="flex justify-center items-center gap-5">
             <p>We support Palestine </p>
             <img src="{{asset('palestine.svg')}}" alt="Palestine" srcset="" class="h-3">
         </div>
     </div>
+
+
+
+    
     <nav x-data="{ open: false }" class="bg-transparent  w-full py-4">
-
-
-
 
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">

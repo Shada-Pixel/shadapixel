@@ -14,7 +14,7 @@
             {{-- <a class="text-white hover:text-seagreen" href="https://dribbble.com/iamishtiuq" target="_blank"><span class="iconify" data-icon="icon-park-outline:dribble"></span></a> --}}
         </div>
         <div class="mt-5">
-            <p>© 2023. See Terms of Use for more information. Shada Pixel refers to one or more of Shada Pixel Limited, a Digital Agency in Bangladesh, its network of member firms, and their related entities. Each of its member firms are legally separate and independent entities.</p>
+            <p>© {{ date('Y') }}. See Terms of Use for more information. Shada Pixel refers to one or more of Shada Pixel Limited, a Digital Agency in Bangladesh, its network of member firms, and their related entities. Each of its member firms are legally separate and independent entities.</p>
         </div>
 
         <div class="">

@@ -35,6 +35,7 @@ Route::controller( HomeController::class )->group(function () {
     Route::get('/allservices', 'services')->name('services');
     Route::get('/works/{industry}', 'industries')->name('industries.show');
     Route::get('/project_details/{project}', 'pdtails')->name('projects.details');
+    Route::get('/members_protfolio/{member}', 'memberProtfolio')->name('memberProtfolio');
 });
 
 

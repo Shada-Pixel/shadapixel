@@ -9,17 +9,12 @@
 
     {{-- Page Content --}}
     <div class="flex flex-col gap-6">
-        <div class="card">
-            <div class="p-6 grid lg:grid-cols-2 gap-6">
-
+        <div class="card max-w-7xl">
+            <div class="p-6 flex gap-6">
                 <div class="">
-                    <img src="{{asset($member->photo)}}" alt="" srcset="" class="w-full">
-
+                    <img src="{{asset($member->photo)}}" alt="" srcset="" class="max-w-lg h-auto">
                 </div>
-
-                <div class="">
-
-
+                <div class="f flex-grow">
                     <h3 class="font-mont font-bold text-base sm:text-2xl">{{$member->name}}</h3>
                     <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$member->designation}}</p>
 

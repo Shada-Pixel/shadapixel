@@ -35,7 +35,9 @@
                     <div class="flex gap-2">
                         @forelse ($project->members as $member)
                         {{-- Each Member --}}
-                        <div class="eachColaborator p-1 w-12 h-12 rounded-full group bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset($member->photo) }})" data-member="{{$member->name}}"> </div>
+                        <a href="{{route('memberProtfolio', $member->id)}}">
+                            <div class="eachColaborator p-1 w-12 h-12 rounded-full group bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset($member->photo) }})" data-member="{{$member->name}}"> </div>
+                        </a>
                         @empty
                         <div class=""></div>
                         @endforelse

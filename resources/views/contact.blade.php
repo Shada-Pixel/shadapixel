@@ -23,10 +23,10 @@
                     digital objectives. Feel free to reach out to us using the contact information provided below.</p>
 
                 <div class="">
-                    <p><span class="text-seagreen">Phone:</span> <a href="tel:+8801928292567">+880 1928 292 567</a></p>
+                    <p><span class="text-seagreen">Phone:</span> <a href="tel:+8801956113999">+880 1956 113 999</a></p>
                     <p><span class="text-seagreen">Email:</span> <a
-                            href="mailto:contact@shadapixel.com">contact@shadapixel.com</a></p>
-                    <p><span class="text-seagreen">Location:</span> Munna Tower, 6th floor, 7 KDA Ave, Khulna 9100</p>
+                            href="mailto:shadapixel@gmail.com">shadapixel@gmail.com</a></p>
+                    <p><span class="text-seagreen">Location:</span> 75 TB Boundary Road, Moulovipara, Khulna - 9000 </p>
                 </div>
             </div>
 
