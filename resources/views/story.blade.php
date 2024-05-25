@@ -106,9 +106,10 @@
 
     {{-- clients --}}
     <section>
+
         <div class="max-w-7xl mx-auto py-12 sm:py-24">
 
-            <div class="grid grid-cols-3 gap-10">
+            <div class="grid grid-cols-4 gap-10">
                 {{-- client --}}
                 <div class="">
                     <img src="{{ asset('images/clients/usawa.png') }}" alt="" srcset=""
@@ -125,20 +126,20 @@
                         class="h-14 w-auto">
                 </div>
                 {{-- client --}}
-                <div class="">
+                {{-- <div class="">
                     <img src="{{ asset('images/clients/bcnf.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
-                </div>
+                </div> --}}
                 {{-- client --}}
                 <div class="">
                     <img src="{{ asset('images/clients/bm.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
                 </div>
                 {{-- client --}}
-                <div class="">
+                {{-- <div class="">
                     <img src="{{ asset('images/clients/abn.png') }}" alt="" srcset=""
                         class="h-14 w-auto">
-                </div>
+                </div> --}}
             </div>
         </div>
 
