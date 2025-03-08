@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="{{ asset('css/marquee.css') }}">
     </x-slot>
 
+    <x-slot name="canonical">
+        <link rel="canonical" href="https://shadapixel.com/">
+    </x-slot>
+
     {{-- hero section --}}
     <div class="h-screen max-h-[930px] bg-cover bg-center"
         style="background-image: url('{{ asset('images/hero.jpg') }}');">
@@ -101,7 +105,7 @@
                     @forelse ($industry->projects as $project)
                     {{-- item --}}
                     <div class="item">
-                        <img src="{{ asset($project->cover_work) }}" alt="" srcset=""
+                        <img src="{{ asset($project->cover_work) }}" alt="{{ $project->name }}" srcset=""
                             class="mb-8">
                         <p class="font-dm font-normal text-xs sm:text-sm tracking-[.3em] uppercase mb-2">{{$industry->name}} | {{ date('M d, Y', strtotime($project->delivery_date)) }}
                         </p>
@@ -193,45 +197,7 @@
     </div>
 
     {{-- clients --}}
-    <section>
-
-        <div class="max-w-7xl mx-auto py-12 sm:py-24">
-
-            <div class="grid grid-cols-4 gap-10">
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/usawa.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/rb.svg') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/afn.svg') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                {{-- <div class="">
-                    <img src="{{ asset('images/clients/bcnf.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div> --}}
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/bm.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                {{-- <div class="">
-                    <img src="{{ asset('images/clients/abn.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div> --}}
-            </div>
-        </div>
-
-    </section>
+    <x-clientSection/>
 
 
 
@@ -285,7 +251,7 @@
                     <p>Shada Pixel</p>
                 </div>
                 <div class="">
-                    <h3 class="text-lg font-bold">Ishtiuq Ahmed</h3>
+                    <h3 class="text-lg font-bold">Sabbir Hussain</h3>
                     <p>Chief Executive Officer</p>
                     <p>Shada Pixel</p>
                 </div>
@@ -306,9 +272,13 @@
                     passionate about crafting exceptional digital experiences. Our diverse team is composed of talented
                     web designers, web developers, graphic designers, UI/UX Designers, video editors, digital marketer
                     and more.</p>
-                <button
-                    class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['TEAM_MEMBER'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">TEAM
-                    MEMBER</button>
+
+                <a href="{{route('story').'/#team'}}">
+
+                    <button
+                        class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['TEAM_MEMBER'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">TEAM
+                        MEMBER</button>
+                </a>
             </div>
             <div class="sm:w-1/2 grid grid-cols-2 gap-5">
 
@@ -321,14 +291,14 @@
                             {{ $member->designation }}</p>
 
                         <h3 class="font-mont font-bold text-base sm:text-lg">{{ $member->name }}</h3>
-                        <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
+                        {{-- <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
                             @foreach ($member->soocial_medias as $sm)
                                 @if ($sm['name'] != null)
                                     <a class="hover:text-seagreen" href="{{ $sm['link'] }}" target="_blank"><span
                                             class="iconify" data-icon="iconoir:{{ $sm['icon'] }}"></span></a>
                                 @endif
                             @endforeach
-                        </div>
+                        </div> --}}
                     </div>
                 @endforeach
 

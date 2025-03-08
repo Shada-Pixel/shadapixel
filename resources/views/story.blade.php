@@ -69,7 +69,7 @@
 
 
     {{-- Team --}}
-    <div class="py-12 sm:py-24 bg-cream">
+    <div class="py-12 sm:py-24 bg-cream" id="team">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- heading --}}
             <div class="mb-10 sm:mb-[85px] ">
@@ -89,7 +89,7 @@
                         <h3 class="font-mont font-bold text-base sm:text-lg hover:text-seagreen cursor-pointer">{{$member->name}}</h3>
                     </a>
 
-                    <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
+                    {{-- <div class="flex justify-start space-x-2 text-nblue text-lg sm:text-2xl mt-2">
                         @foreach ($member->soocial_medias as $sm)
                             @if ($sm['name'] != null)
 
@@ -97,7 +97,7 @@
                                 target="_blank"><span class="iconify" data-icon="iconoir:{{$sm['icon']}}"></span></a>
                             @endif
                         @endforeach
-                    </div>
+                    </div> --}}
                 </div>
                 @endforeach
             </div>
@@ -105,47 +105,6 @@
     </div>
 
     {{-- clients --}}
-    <section>
-
-        <div class="max-w-7xl mx-auto py-12 sm:py-24">
-
-            <div class="grid grid-cols-4 gap-10">
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/usawa.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/rb.svg') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/afn.svg') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                {{-- <div class="">
-                    <img src="{{ asset('images/clients/bcnf.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div> --}}
-                {{-- client --}}
-                <div class="">
-                    <img src="{{ asset('images/clients/bm.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div>
-                {{-- client --}}
-                {{-- <div class="">
-                    <img src="{{ asset('images/clients/abn.png') }}" alt="" srcset=""
-                        class="h-14 w-auto">
-                </div> --}}
-            </div>
-        </div>
-
-    </section>
-
-
-
+    <x-clientSection/>
 
 </x-guest-layout>

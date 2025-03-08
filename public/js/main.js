@@ -21,6 +21,29 @@ $(".blogCarousal").owlCarousel({
         }
     }
 })
+$(".clientCarousel").owlCarousel({
+    loop: true,
+    margin: 30,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    dots: false,
+    responsiveClass: false,
+    responsive: {
+        0: {
+            items: 1,
+            nav: false
+        },
+        600: {
+            items: 2,
+            nav: false
+        },
+        1000: {
+            items: 4,
+            nav: false
+        }
+    }
+})
+
 
 
 // toggling innovation popup

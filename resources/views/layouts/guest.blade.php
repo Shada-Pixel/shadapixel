@@ -5,8 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Shadapixel</title>
+    <meta name="description" content="We craft stunning, high-performing websites from WordPress to React. Let’s transform your ideas into reality today!">
+
+    <meta property="og:title" content="Shadapixel">
+    <meta property="og:description" content="We craft stunning, high-performing websites from WordPress to React. Let’s transform your ideas into reality today!">
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:url" content="https://shadapixel.com/">
+
+    <meta name="twitter:title" content="Shadapixel">
+    <meta name="twitter:description" content="We craft stunning, high-performing websites from WordPress to React. Let’s transform your ideas into reality today!">
+    <meta name="twitter:image" content="/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Basic stylesheet -->
@@ -25,6 +37,10 @@
     {{-- Header style --}}
     @if (isset($headerstyle))
         {{ $headerstyle }}
+    @endif
+    {{-- Canonical --}}
+    @if (isset($canonical))
+        {{ $canonical }}
     @endif
 
     {{-- Custom CSS --}}
@@ -78,7 +94,7 @@
 
     <div class="min-h-screen">
 
-        
+
 
 
 

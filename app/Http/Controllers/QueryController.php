@@ -29,7 +29,7 @@ class QueryController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -37,7 +37,7 @@ class QueryController extends Controller
      */
     public function store(StoreQueryRequest $request)
     {
-
+        
         $query = Query::create([
             'name'=> $request->name,
             'email' => $request->email,
