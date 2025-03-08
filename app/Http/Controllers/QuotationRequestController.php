@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\QuotationRequest;
 use App\Http\Requests\StoreQuotationRequestRequest;
 use App\Http\Requests\UpdateQuotationRequestRequest;
+use Illuminate\Http\Request;
 
 class QuotationRequestController extends Controller
 {

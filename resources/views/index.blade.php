@@ -49,6 +49,7 @@
                     online. We use a combination of search engine optimization (SEO), social media marketing, email
                     marketing, and pay-per-click (PPC) advertising to create a customized strategy that meets your
                     business goals.</p>
+                
             </div>
             {{-- serviece item --}}
             <div class="showOnScroll transition-all duration-500 ease-in-out delay-75">
@@ -93,6 +94,9 @@
             </div>
 
         </div>
+        <a class="flex justify-center items-center mt-8" href="{{ route('quotation.form') }}">
+            <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['Get_Quotation'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Get Quotation </button>
+        </a>
     </div>
 
     {{-- projects --}}
