@@ -12,7 +12,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProjectMemberController;
+use App\Http\Controllers\QuotationRequestController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,10 @@ Route::controller( HomeController::class )->group(function () {
     Route::get('/project_details/{project}', 'pdtails')->name('projects.details');
     Route::get('/members_protfolio/{member}', 'memberProtfolio')->name('memberProtfolio');
 });
+
+Route::get('/quotation-request', [QuotationRequestController::class, 'showForm'])->name('quotation.form');
+Route::post('/quotation-request', [QuotationRequestController::class, 'submitForm'])->name('quotation.submit');
+
 
 
 
