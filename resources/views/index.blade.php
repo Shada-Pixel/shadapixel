@@ -99,6 +99,27 @@
         </a>
     </div>
 
+
+    <section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+            <div class="flex flex-col sm:flex-row gap-5">
+                <div class="sm:w-1/2">
+                    <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">About Us</h2>
+                    <p>Shada Pixel is a full-service digital agency that specializes in web design, web development, and
+                        digital marketing. We are passionate about creating innovative digital solutions that help
+                        businesses succeed in the digital landscape. Our team of experts is dedicated to delivering
+                        exceptional results that drive growth and elevate brands to new heights.</p>
+                    <a href="{{ route('story') }}">
+                        <x-primary-button>Read More</x-primary-button>
+                    </a>
+                </div>
+                <div class="sm:w-1/2">
+                    <img src="{{ asset('images/Rectangle 17.jpg') }}" alt="About Us" srcset="">
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- projects --}}
     <div class="py-12 sm:py-24 overflow-hidden">
 
