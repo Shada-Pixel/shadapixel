@@ -3,11 +3,17 @@
     <x-slot name="headerstyle">
         <link rel="stylesheet" href="{{ asset('css/textswitch.css') }}">
         <link rel="stylesheet" href="{{ asset('css/marquee.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     </x-slot>
 
     <x-slot name="canonical">
         <link rel="canonical" href="https://shadapixel.com/">
     </x-slot>
+
+    <x-slot name="headerscript">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    </x-slot>
+
 
     {{-- hero section --}}
     <div class="h-screen max-h-[930px] bg-cover bg-center"
@@ -100,24 +106,54 @@
     </div>
 
 
-    <section>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-            <div class="flex flex-col sm:flex-row gap-5">
-                <div class="sm:w-1/2">
-                    <h2 class="font-mont font-bold text-3xl sm:text-4xl mb-4">About Us</h2>
-                    <p>Shada Pixel is a full-service digital agency that specializes in web design, web development, and
-                        digital marketing. We are passionate about creating innovative digital solutions that help
-                        businesses succeed in the digital landscape. Our team of experts is dedicated to delivering
-                        exceptional results that drive growth and elevate brands to new heights.</p>
-                    <a href="{{ route('story') }}">
-                        <x-primary-button>Read More</x-primary-button>
-                    </a>
+    <section class="" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto py-12 sm:py-24">
+            <div class="text-center max-w-xl mx-auto">
+                <h3 class="text-sm uppercase text-gray-500">Innovate</h3>
+                <h1 class="text-2xl sm:text-3xl font-bold mt-2">Transforming Ideas into Digital Experiences</h1>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base">At Shadapixel, we specialize in crafting stunning websites that captivate and convert. Our branding and digital marketing services ensure your business stands out in a crowded marketplace.</p>
+                
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-center">
+                <div class="space-y-12">
+                    <div class="flex flex-col items-center" data-aos="fade-right">
+                        <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
+                        <h2 class="font-bold">Web Design Excellence</h2>
+                        <p class="text-sm text-gray-600 text-center">Custom websites that reflect your brand and engage your audience effectively.</p>
+                    </div>
+                    <div class="flex flex-col items-center" data-aos="fade-right">
+                        <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
+                        <h2 class="font-bold">Branding That Resonates</h2>
+                        <p class="text-sm text-gray-600 text-center">Creating memorable identities that connect with your target market and elevate your business.</p>
+                    </div>
                 </div>
-                <div class="sm:w-1/2">
-                    <img src="{{ asset('images/Rectangle 17.jpg') }}" alt="About Us" srcset="">
+                
+                <div class="flex justify-center">
+                    <div class="w-48 h-48 bg-gray-300 flex items-center justify-center rounded-lg">
+                        <span class="text-gray-500">📷</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-12">
+                    <div class="flex flex-col items-center" data-aos="fade-left">
+                        <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
+                        <h2 class="font-bold">Digital Marketing Strategies</h2>
+                        <p class="text-sm text-gray-600 text-center">Driving traffic and engagement through tailored marketing campaigns that deliver measurable results.</p>
+                    </div>
+                    <div class="flex flex-col items-center" data-aos="fade-left">
+                        <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
+                        <h2 class="font-bold">Get Started Today</h2>
+                        <p class="text-sm text-gray-600 text-center">Let's collaborate to bring your vision to life and achieve your business goals.</p>
+                    </div>
                 </div>
             </div>
+            
+            <div class="mt-12 flex justify-center space-x-4" data-aos="fade-up">
+                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm">Learn More</button>
+                <a href="#" class="text-sm text-gray-700 hover:underline">Sign Up →</a>
+            </div>
         </div>
+        
     </section>
 
     {{-- projects --}}
@@ -334,6 +370,9 @@
     <x-slot name="script">
         <script src="{{ asset('js/textswitch.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </x-slot>
 
 

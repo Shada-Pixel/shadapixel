@@ -47,6 +47,7 @@
     @if (isset($headerstyle))
         {{ $headerstyle }}
     @endif
+
     {{-- Canonical --}}
     @if (isset($canonical))
         {{ $canonical }}
@@ -58,6 +59,10 @@
     <script>
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";
     </script>
+    {{-- Header style --}}
+    @if (isset($headerscript))
+        {{ $headerscript }}
+    @endif
 
     <!-- Meta Pixel Code -->
     <script>
