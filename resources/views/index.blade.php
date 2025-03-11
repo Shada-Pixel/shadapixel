@@ -132,6 +132,7 @@
                     <div class="w-48 h-48 bg-gray-300 flex items-center justify-center rounded-lg">
                         <span class="text-gray-500">📷</span>
                     </div>
+                    <img src="{{ asset('images/developer.svg') }}" alt="" class="w-48 h-48 rounded-lg">
                 </div>
                 
                 <div class="space-y-12">
