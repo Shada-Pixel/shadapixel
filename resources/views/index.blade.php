@@ -2,7 +2,6 @@
 
     <x-slot name="headerstyle">
         <link rel="stylesheet" href="{{ asset('css/textswitch.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/marquee.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     </x-slot>
 
@@ -12,6 +11,10 @@
 
     <x-slot name="headerscript">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <!-- Include Owl carousal plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </x-slot>
 
 
@@ -100,58 +103,56 @@
             </div>
 
         </div>
-        <a class="flex justify-center items-center mt-8" href="{{ route('quotation.form') }}">
-            <button class="font-mont mt-8 px-10 py-4 bg-black text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 relative after:absolute after:content-['Get_Quotation'] after:flex after:justify-center after:items-center after:text-white after:w-full after:h-full after:z-10 after:top-full after:left-0 after:bg-seagreen overflow-hidden hover:after:top-0 after:transition-all after:duration-300">Get Quotation </button>
-        </a>
+        
     </div>
 
 
     <section class="" data-aos="fade-up">
         <div class="max-w-7xl mx-auto py-12 sm:py-24">
-            <div class="text-center max-w-xl mx-auto">
-                <h3 class="text-sm uppercase text-gray-500">Innovate</h3>
-                <h1 class="text-2xl sm:text-3xl font-bold mt-2">Transforming Ideas into Digital Experiences</h1>
-                <p class="text-gray-600 mt-3 text-sm sm:text-base">At Shadapixel, we specialize in crafting stunning websites that captivate and convert. Our branding and digital marketing services ensure your business stands out in a crowded marketplace.</p>
+            <div class="text-center max-w-2xl mx-auto">
+                <h3 class="uppercase text-gray-500">Innovate</h3>
+                <h1 class="text-2xl sm:text-5xl font-bold mt-2 font-mont">Transforming Ideas into Digital Experiences</h1>
+                <p class="text-gray-600 mt-3 sm:text-base">At Shadapixel, we specialize in crafting stunning websites that captivate and convert. Our branding and digital marketing services ensure your business stands out in a crowded marketplace.</p>
                 
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-24 mt-24 items-center">
                 <div class="space-y-12">
-                    <div class="flex flex-col items-center" data-aos="fade-right">
+                    {{-- Individual divs --}}
+                    <div class="flex flex-col items-center aspect-video justify-center" data-aos="fade-right">
                         <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
-                        <h2 class="font-bold">Web Design Excellence</h2>
-                        <p class="text-sm text-gray-600 text-center">Custom websites that reflect your brand and engage your audience effectively.</p>
+                        <h2 class="font-bold text-lg sm:text-2xl">Web Design Excellence</h2>
+                        <p class="text-gray-600 text-center">Custom websites that reflect your brand and engage your audience effectively.</p>
                     </div>
-                    <div class="flex flex-col items-center" data-aos="fade-right">
+                    <div class="flex flex-col items-center aspect-video justify-center" data-aos="fade-right">
                         <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
-                        <h2 class="font-bold">Branding That Resonates</h2>
-                        <p class="text-sm text-gray-600 text-center">Creating memorable identities that connect with your target market and elevate your business.</p>
+                        <h2 class="font-bold text-lg sm:text-2xl">Branding That Resonates</h2>
+                        <p class="text-gray-600 text-center">Creating memorable identities that connect with your target market and elevate your business.</p>
                     </div>
                 </div>
                 
                 <div class="flex justify-center">
-                    <div class="w-48 h-48 bg-gray-300 flex items-center justify-center rounded-lg">
-                        <span class="text-gray-500">📷</span>
-                    </div>
-                    <img src="{{ asset('images/developer.svg') }}" alt="" class="w-48 h-48 rounded-lg">
+                    <img src="{{ asset('images/developer.png') }}" alt="" class="w-full rounded-lg">
+                    
                 </div>
                 
                 <div class="space-y-12">
-                    <div class="flex flex-col items-center" data-aos="fade-left">
+                    <div class="flex flex-col items-center aspect-video justify-center" data-aos="fade-left">
                         <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
-                        <h2 class="font-bold">Digital Marketing Strategies</h2>
-                        <p class="text-sm text-gray-600 text-center">Driving traffic and engagement through tailored marketing campaigns that deliver measurable results.</p>
+                        <h2 class="font-bold text-lg sm:text-2xl">Digital Marketing Strategies</h2>
+                        <p class="text-gray-600 text-center">Driving traffic and engagement through tailored marketing campaigns that deliver measurable results.</p>
                     </div>
-                    <div class="flex flex-col items-center" data-aos="fade-left">
+                    <div class="flex flex-col items-center aspect-video justify-center" data-aos="fade-left">
                         <svg class="w-8 h-8 text-gray-700 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"></path></svg>
-                        <h2 class="font-bold">Get Started Today</h2>
-                        <p class="text-sm text-gray-600 text-center">Let's collaborate to bring your vision to life and achieve your business goals.</p>
+                        <h2 class="font-bold text-lg sm:text-2xl">Get Started Today</h2>
+                        <p class="text-gray-600 text-center">Let's collaborate to bring your vision to life and achieve your business goals.</p>
                     </div>
                 </div>
             </div>
             
             <div class="mt-12 flex justify-center space-x-4" data-aos="fade-up">
-                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm">Learn More</button>
-                <a href="#" class="text-sm text-gray-700 hover:underline">Sign Up →</a>
+                <a class="font-mont px-10 py-4 bg-seagreen text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 hover:scale-105" href="{{ route('quotation.form') }}">Get Quotation
+                </a>
+                <a href="#" class="font-mont px-10 py-4 bg-nblue text-white font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 hover:scale-105">Place Order</a>
             </div>
         </div>
         
@@ -209,7 +210,7 @@
                 <x-primary-button onclick="toggleInnoPop()">Learn more</x-primary-button>
             </div>
             <div class="sm:w-1/2 min-h-[400px] bg-cover bg-no-repeat bg-center"
-                style="background-image: url('{{ asset('../images/Rectangle16.jpg') }}');">
+                style="background-image: url('{{ asset('images/Rectangle16.jpg') }}');">
             </div>
         </div>
     </div>
@@ -263,6 +264,50 @@
 
 
 
+    {{-- testimonials --}}
+    <section class="">
+        <div class="max-w-7xl mx-auto py-12">
+            <h2 class="text-2xl sm:text-4xl font-bold mt-2 font-mont">Client Feedback</h2>
+            <p class="text-gray-600 mb-12">Shadapixel transformed our vision into reality.</p>
+
+            <!-- Testimonial slider dev -->
+            <div class="owl-carousel testimonial-carousel owl-theme px-4 sm:px-0">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="text-seagreen text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-nblue font-bold text-lg">
+                        "Working with Shadapixel was a game-changer for us. Their creativity and professionalism exceeded our expectations."
+                    </p>
+                    <div class="flex items-center mt-4 text-sm text-gray-600">
+                        <span class="font-bold">Alice Johnson</span> - CEO, Innovate Corp
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Webflow_logo.svg" alt="Webflow" class="h-4 ml-2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    
+    <!-- Portfolio Section -->
+    <section class="bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto mt-8">
+        <h2 class="text-2xl font-bold text-gray-900">Explore Our Stunning Portfolio</h2>
+        <p class="text-gray-600 mt-2">
+            Discover the creativity and innovation behind our projects. Let us help bring your vision to life.
+        </p>
+        
+        <div class="mt-4">
+            <a href="#" class="bg-black text-white px-4 py-2 rounded-md text-sm font-medium">View</a>
+            <a href="#" class="border border-gray-600 text-gray-900 px-4 py-2 rounded-md text-sm font-medium ml-2">Contact</a>
+        </div>
+    </section>
+
+
+
     {{-- update --}}
     <div class="bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 flex flex-col sm:flex-row gap-5">
@@ -293,7 +338,7 @@
         <div class="">
 
             <div class="w-[90%] ml-0 mr-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 bg-cover bg-no-repeat"
-                style="background-image: url('{{ asset('../images/Rectangle 23.jpg') }}');">
+                style="background-image: url('{{ asset('images/Rectangle 23.jpg') }}');">
                 <h2 class="font-mont font-bold text-2xl sm:text-4xl text-white mb-4 text-center">Subscribe to our
                     newsletter to stay in<br>
                     touch with the latest.</h2>
@@ -373,6 +418,29 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script>
             AOS.init();
+            $(document).ready(function(){
+                $(".testimonial-carousel").owlCarousel({
+                    items: 2,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 1000,
+                    autoplayHoverPause: true,
+                    margin: 10,
+                    nav: true,
+                    dots: true,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                            nav:true
+                        },
+                        680:{
+                            items:2,
+                            nav:false
+                        }
+                    }
+                });
+            });
         </script>
     </x-slot>
 
